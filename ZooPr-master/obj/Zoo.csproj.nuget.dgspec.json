@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Zoo\\ZooPr-master\\Zoo.csproj": {}
+    "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\Zoo.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Zoo\\ZooPr-master\\Zoo.csproj": {
+    "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\Zoo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Zoo\\ZooPr-master\\Zoo.csproj",
+        "projectUniqueName": "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\Zoo.csproj",
         "projectName": "Zoo",
-        "projectPath": "E:\\Projects\\Zoo\\ZooPr-master\\Zoo.csproj",
+        "projectPath": "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\Zoo.csproj",
         "packagesPath": "C:\\Users\\hristo.hristov\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Zoo\\ZooPr-master\\obj\\",
+        "outputPath": "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hristo.hristov\\AppData\\Roaming\\NuGet\\NuGet.Config",

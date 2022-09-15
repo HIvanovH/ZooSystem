@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IgMp1iJaF+Z7Qna4vayPxOUIPPeMOiWkQ1EyDorQISC9I84kFzU14lVNaeZ8yTTEwZznFKrQdl7RThFNYmd7ew==",
+  "dgSpecHash": "cygFi2uzhUXKOvKRKNX5p3XaxcAaeIOIN6ZO3mlrc9/q/T2aN1G8rCr4W8Rz32duRsLnotmEaoSUKwV9rg4foA==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Zoo\\ZooPr-master\\Zoo.csproj",
+  "projectFilePath": "E:\\Projects\\Zoo\\ZooSystem\\ZooPr-master\\Zoo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hristo.hristov\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\hristo.hristov\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

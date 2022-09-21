@@ -18,7 +18,11 @@
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
-    <ContentControl  Content="{Binding SelectedViewModel}">
+    <Grid>
 
-    </ContentControl>
+        <ContentControl Content="{Binding SelectedViewModel}">
+           
+        </ContentControl>
+    </Grid>
 </Window>
+

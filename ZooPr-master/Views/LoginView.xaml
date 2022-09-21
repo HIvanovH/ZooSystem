@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:Zoo.Views"
         xmlns:viewmodels="clr-namespace:Zoo.View_Models"
         mc:Ignorable="d"
-     
         Height="auto" 
-        Width="auto"
-            >
-
+        Width="auto">
+    
     <Grid x:Name="MainGrid">
         <Grid Height="Auto" Width="Auto">
             <Grid.Background>

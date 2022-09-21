@@ -29,13 +29,14 @@ namespace Zoo.View_Models
         }
         
 
-        public ICommand UpdateViewCommand { get; set; }
+        private void ChangeView()
+        {
+            
+        }
 
         public MainViewModel()
         {
-            
-            SelectedViewModel = new LoginViewModel(this);
-            
+            SelectedViewModel = new LoginViewModel();
         }
     }
 }

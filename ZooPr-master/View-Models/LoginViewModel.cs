@@ -21,21 +21,15 @@ namespace Zoo.View_Models
         public User currentUser;
         public List<User> Users { get; set; }
 
+
         private ICommand _command;
         public ICommand Command
         {
-            get { return _command ?? (_command = new LoginCommand(_mainViewModel)); }
+            get { return _command ?? (_command = new LoginCommand()); }
         }
 
-        public LoginViewModel(MainViewModel mainViewModel)
-        {
-            _mainViewModel = mainViewModel;
-        }
         public string Username { get { return _username; } set { _username = value; OnPropertyChanged("Username"); } }
-        public LoginViewModel()
-        {
-
-        }
+       
 
     }
 }

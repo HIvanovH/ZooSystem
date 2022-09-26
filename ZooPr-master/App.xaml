@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Zoo"
              xmlns:views="clr-namespace:Zoo.Views"
              xmlns:viewmodels="clr-namespace:Zoo.View_Models"
-             StartupUri="Views/MainWindow.xaml">
+             StartupUri="Views/LoginView.xaml">
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
             <views:MainWindow/>

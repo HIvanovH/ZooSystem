@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Zoo.Commands;
 using Zoo.Data;
 using Zoo.Models;
+using Zoo.Services;
 
 namespace Zoo.View_Models
 {
@@ -25,11 +26,17 @@ namespace Zoo.View_Models
         private ICommand _command;
         public ICommand Command
         {
-            get { return _command ?? (_command = new LoginCommand()); }
+            get { return _command ?? (_command = new DelegateCommand(p => LoginSuccessfully())); }
         }
-
+        public void LoginSuccessfully()
+        {
+            var win = new Window();
+            win.Content = new MenuViewModel();
+            win.Show();
+            Application.Current.MainWindow.Close();
+        }
         public string Username { get { return _username; } set { _username = value; OnPropertyChanged("Username"); } }
-       
+
 
     }
 }

@@ -28,15 +28,5 @@ namespace Zoo.View_Models
             }
         }
         
-
-        private void ChangeView()
-        {
-            
-        }
-
-        public MainViewModel()
-        {
-            SelectedViewModel = new LoginViewModel();
-        }
     }
 }

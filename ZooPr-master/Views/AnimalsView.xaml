@@ -1,141 +1,137 @@
 ﻿<UserControl x:Class="Zoo.Views.AnimalsView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Zoo.Views"
-        mc:Ignorable="d">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Zoo.Views"
+             mc:Ignorable="d">
     <Grid Margin="10,0,10,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"  ></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="15*"></RowDefinition>
-            
+
         </Grid.RowDefinitions>
-        <ComboBox
-                    Grid.Row="1" 
-                    ItemsSource="{Binding Categories}"
-                    DisplayMemberPath="Name" 
-                    SelectedItem="{Binding Path=SCategory}"
-                    SelectedValuePath="Name"
-                    SelectedValue="{Binding Name, Mode=TwoWay}" 
-                    FontSize="20" 
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Left" 
-                    Margin="15" 
-                    Width="250" 
-                    Height="30"
-                    Background="AntiqueWhite" />
+        <ComboBox Grid.Row="1"
+                  ItemsSource="{Binding Categories}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding Path=SCategory}"
+                  SelectedValuePath="Name"
+                  SelectedValue="{Binding Name, Mode=TwoWay}"
+                  FontSize="20"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left"
+                  Margin="15"
+                  Width="250"
+                  Height="30"
+                  Background="AntiqueWhite" />
         <Button Grid.Row="1"
-                    Command="{Binding SearchAnimals}" 
-                    Content="Търси" 
-                    Background="AntiqueWhite" 
-                    FontSize="18" 
-                    Width="150" 
-                    Height="30"
-                    HorizontalAlignment="Left"
-                    Margin="300,0,0,0"/>
+                Command="{Binding SearchAnimals}"
+                Content="Търси"
+                Background="AntiqueWhite"
+                FontSize="18"
+                Width="150"
+                Height="30"
+                HorizontalAlignment="Left"
+                Margin="300,0,0,0" />
 
 
-        <Border Grid.Row="0" 
+        <Border Grid.Row="0"
                 Margin="15,0,15,0"
-                CornerRadius="25" 
-                BorderThickness="1" 
+                CornerRadius="25"
+                BorderThickness="1"
                 BorderBrush="#FF000000"
                 MinWidth="200"
                 HorizontalAlignment="Center">
             <Border.Background>
                 <SolidColorBrush Color="AntiqueWhite"></SolidColorBrush>
             </Border.Background>
-            <TextBlock  
-                   HorizontalAlignment="Stretch"  
-                   TextWrapping="NoWrap" 
-                   Text="Животни" 
-                   VerticalAlignment="Stretch" 
-                   FontSize="36"
-                   TextAlignment="Center" 
-                   FontFamily="Sitka Heading" 
-                   Foreground="#FFFF8000" 
-                   Height="45"/>
+            <TextBlock HorizontalAlignment="Stretch"
+                       TextWrapping="NoWrap"
+                       Text="Животни"
+                       VerticalAlignment="Stretch"
+                       FontSize="36"
+                       TextAlignment="Center"
+                       FontFamily="Sitka Heading"
+                       Foreground="#FFFF8000"
+                       Height="45" />
         </Border>
-        <GroupBox Height="250" 
-                  Width="350" 
-                  Header="Резултати" 
-                  Grid.Row="2"  
-                  HorizontalAlignment="Left" 
-                  VerticalAlignment="Top" 
-                  Margin="15" 
-                  FontSize="18" 
-                  FontWeight="Bold" 
-                  BorderBrush="Black" 
+        <GroupBox Height="250"
+                  Width="350"
+                  Header="Резултати"
+                  Grid.Row="2"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Margin="15"
+                  FontSize="18"
+                  FontWeight="Bold"
+                  BorderBrush="Black"
                   Foreground="Black"
                   Background="AntiqueWhite">
-            <ListView ItemsSource="{Binding Animals}" 
-                      SelectedValue="{Binding SAnimal}" 
-                      Background="AntiqueWhite" 
-                      BorderBrush="Black" 
-                      FontWeight="Bold" 
+            <ListView ItemsSource="{Binding Animals}"
+                      SelectedValue="{Binding SAnimal}"
+                      Background="AntiqueWhite"
+                      BorderBrush="Black"
+                      FontWeight="Bold"
                       FontSize="20"
                       Foreground="Black">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                        Header="Наименование"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Category}"  
-                                        Header="Вид" 
-                                        Width="120"/>
+                                        Header="Наименование" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Category}"
+                                        Header="Вид"
+                                        Width="120" />
                     </GridView>
                 </ListView.View>
             </ListView>
         </GroupBox>
-        <GroupBox Height="250" 
-                  Width="350" 
-                  Header="Описание" 
-                  Grid.Row="2"  
-                  HorizontalAlignment="Center" 
-                  VerticalAlignment="Top" 
-                  Margin="15" 
-                  FontSize="18" 
-                  FontWeight="Bold" 
-                  BorderBrush="Black" 
+        <GroupBox Height="250"
+                  Width="350"
+                  Header="Описание"
+                  Grid.Row="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Margin="15"
+                  FontSize="18"
+                  FontWeight="Bold"
+                  BorderBrush="Black"
                   Foreground="Black"
                   Background="AntiqueWhite">
-            <TextBlock Name="Descrption" 
-                       Text="{Binding SAnimal.Description}" 
-                       TextWrapping="Wrap" 
-                       VerticalAlignment="Center" 
-                       Height="180" 
-                       FontSize="14" 
-                       FontWeight="Bold" 
-                       Margin="5,0,5,0" 
+            <TextBlock Name="Descrption"
+                       Text="{Binding SAnimal.Description}"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       Height="180"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Margin="5,0,5,0"
                        Foreground="#FFFF8000">
                 <TextBlock.Effect>
-                    <DropShadowEffect BlurRadius="10" 
-                                      Color="White" 
+                    <DropShadowEffect BlurRadius="10"
+                                      Color="White"
                                       ShadowDepth="0" />
                 </TextBlock.Effect>
             </TextBlock>
         </GroupBox>
-        <GroupBox Height="250" 
-                  Width="350" 
-                  Header="Снимка" 
-                  Grid.Row="2"  
-                  HorizontalAlignment="Right" 
-                  VerticalAlignment="Top" 
-                  Margin="15" 
-                  FontSize="18" 
-                  FontWeight="Bold" 
-                  BorderBrush="Black" 
+        <GroupBox Height="250"
+                  Width="350"
+                  Header="Снимка"
+                  Grid.Row="2"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Top"
+                  Margin="15"
+                  FontSize="18"
+                  FontWeight="Bold"
+                  BorderBrush="Black"
                   Foreground="Black"
                   Background="AntiqueWhite">
-           
+
             <Image x:Name="img"
                    Source="{Binding SAnimal.Image}"
-            HorizontalAlignment="Stretch" 
-                   Margin="5,5,5,5" 
-                   VerticalAlignment="Stretch"
-                   
-                   />
+                   HorizontalAlignment="Stretch"
+                   Margin="5,5,5,5"
+                   VerticalAlignment="Stretch" />
         </GroupBox>
 
     </Grid>

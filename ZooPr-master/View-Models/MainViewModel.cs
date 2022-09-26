@@ -27,6 +27,6 @@ namespace Zoo.View_Models
                 OnPropertyChanged(nameof(SelectedViewModel));
             }
         }
-        
+
     }
 }

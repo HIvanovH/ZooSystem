@@ -6,19 +6,23 @@
         xmlns:local="clr-namespace:Zoo.Views"
         xmlns:viewModels="clr-namespace:Zoo.View_Models"
         mc:Ignorable="d"
-        Title="Zoo App" Height="auto" Width="auto" MinHeight="800" MinWidth="1350">
+        Title="Zoo App"
+        Height="auto"
+        Width="auto"
+        MinHeight="800"
+        MinWidth="1350">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
-            <local:Menu/>
+            <local:Menu />
         </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
-        <viewModels:MainViewModel/>
+        <viewModels:MainViewModel />
     </Window.DataContext>
     <Grid>
 
         <ContentControl Content="{Binding SelectedViewModel}">
-           
+
         </ContentControl>
     </Grid>
 </Window>

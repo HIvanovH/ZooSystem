@@ -6,90 +6,94 @@
         xmlns:local="clr-namespace:Zoo.Views"
         xmlns:viewModels="clr-namespace:Zoo.View_Models"
         mc:Ignorable="d"
-        Height="680" Width="900" ResizeMode="NoResize">
+        Height="680"
+        Width="900"
+        ResizeMode="NoResize">
     <Window.DataContext>
-        <viewModels:LoginViewModel/>
+        <viewModels:LoginViewModel />
     </Window.DataContext>
     <Grid x:Name="MainGrid">
-        <Grid Height="Auto" Width="Auto">
+        <Grid Height="Auto"
+              Width="Auto">
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/zoo5.jpg"/>
+                <ImageBrush ImageSource="/Pictures/zoo5.jpg" />
             </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" ></RowDefinition>
-                <RowDefinition Height="1.5*" ></RowDefinition>
-                <RowDefinition Height="2*" ></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
             <Viewbox Margin="20">
                 <TextBlock Grid.Row="0"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       TextWrapping="Wrap" 
-                       Text="Sofia Zoo"
-                       FontWeight="Bold"
-                       TextAlignment="Center" 
-                       FontFamily="Sitka Heading"
-                       Foreground="#FFFF8000" />
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Text="Sofia Zoo"
+                           FontWeight="Bold"
+                           TextAlignment="Center"
+                           FontFamily="Sitka Heading"
+                           Foreground="#FFFF8000" />
             </Viewbox>
 
 
 
-            <Grid Grid.Row="1" 
-                        Margin="15" >
+            <Grid Grid.Row="1"
+                  Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" ></ColumnDefinition>
-                    <ColumnDefinition Width="1*" ></ColumnDefinition>
-                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Border  Grid.Column="0"
                          Margin="15,0,15,0"
-                         CornerRadius="25" 
-                         BorderThickness="1" 
+                         CornerRadius="25"
+                         BorderThickness="1"
                          BorderBrush="#FF000000"
                          MinWidth="200">
                     <Border.Background>
-                        <ImageBrush Stretch="Fill" 
+                        <ImageBrush Stretch="Fill"
                                     ImageSource="/Pictures/ZooWithPeople.jpg"></ImageBrush>
                     </Border.Background>
 
                 </Border>
-                <Border Grid.Column="1" 
+                <Border Grid.Column="1"
                         Margin="15,0,15,0"
                         CornerRadius="25"
-                        BorderThickness="1" 
-                        BorderBrush="#FF000000"  
+                        BorderThickness="1"
+                        BorderBrush="#FF000000"
                         MinWidth="200"
                         HorizontalAlignment="Stretch">
                     <Border.Background>
-                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.8">
+                        <SolidColorBrush Color="AntiqueWhite"
+                                         Opacity="0.8">
                         </SolidColorBrush>
 
                     </Border.Background>
-                    <Image Source="/Pictures/Logo.png"  Stretch="Fill"/>
+                    <Image Source="/Pictures/Logo.png"
+                           Stretch="Fill" />
                 </Border>
-                <Border
-                    Grid.Column="2"
-                         Margin="15,0,15,0"
-                         CornerRadius="25" 
-                         BorderThickness="1" 
-                         BorderBrush="#FF000000"
-                         MinWidth="200"
-                         HorizontalAlignment="Stretch">
+                <Border Grid.Column="2"
+                        Margin="15,0,15,0"
+                        CornerRadius="25"
+                        BorderThickness="1"
+                        BorderBrush="#FF000000"
+                        MinWidth="200"
+                        HorizontalAlignment="Stretch">
                     <Border.Background>
-                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.8"></SolidColorBrush>
+                        <SolidColorBrush Color="AntiqueWhite"
+                                         Opacity="0.8"></SolidColorBrush>
                     </Border.Background>
-                    <WrapPanel Margin="10" VerticalAlignment="Center">
+                    <WrapPanel Margin="10"
+                               VerticalAlignment="Center">
 
-                        <TextBlock 
-                       Text="Приятно място за разходка, където може да разгледате екзотични животни. Зоопаркът предлага огромно разнообраие от животински видове и е най-големият в България."
-                       FontSize="18"
-                           MaxWidth="900"
-                            TextWrapping="Wrap" 
-                      
-                       TextAlignment="Center" 
-                       FontFamily="Sitka Heading"
-                       Foreground="Black" 
-                                Opacity="1"/>
+                        <TextBlock Text="Приятно място за разходка, където може да разгледате екзотични животни. Зоопаркът предлага огромно разнообраие от животински видове и е най-големият в България."
+                                   FontSize="18"
+                                   MaxWidth="900"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   FontFamily="Sitka Heading"
+                                   Foreground="Black"
+                                   Opacity="1" />
 
 
                     </WrapPanel>
@@ -97,27 +101,53 @@
 
 
             </Grid>
-            <Border x:Name="LoginBorder"  
-                    Height="220" Width="350"
-                    Grid.Row="2" 
+            <Border x:Name="LoginBorder"
+                    Height="220"
+                    Width="350"
+                    Grid.Row="2"
                     Margin="0,24,49,26"
                     CornerRadius="25"
                     BorderBrush="Black"
-                    BorderThickness="2" 
+                    BorderThickness="2"
                     Grid.ColumnSpan="1"
                     HorizontalAlignment="Right">
 
                 <Border.Background>
-                    <SolidColorBrush Color="AntiqueWhite" 
+                    <SolidColorBrush Color="AntiqueWhite"
                                      Opacity="0.8"></SolidColorBrush>
                 </Border.Background>
                 <StackPanel Opacity="1">
 
-                    <TextBlock TextWrapping="Wrap" Text="Username" TextAlignment="Left" Margin="20,10,232,15" FontSize="18"/>
-                    <TextBox x:Name="UserNameInput" Text="{Binding Username}" TextWrapping="Wrap" Width="300" Height="30" Background="White" FontSize="18" Margin="0,-5,0,0"/>
-                    <TextBlock  TextWrapping="Wrap" Text="Password"  TextAlignment="Left" Margin="20,20,232,15" FontSize="18"/>
-                    <PasswordBox Margin="0,-5,0,0" Height="30" Width="300" FontSize="18" PasswordChanged="PasswordBox_PasswordChanged"/>
-                    <Button Content="Вход" Height="30" Width="100" HorizontalAlignment="Right" Margin="0,15,50,0" Command="{Binding Command}" CommandParameter="Menu"></Button>
+                    <TextBlock TextWrapping="Wrap"
+                               Text="Username"
+                               TextAlignment="Left"
+                               Margin="20,10,232,15"
+                               FontSize="18" />
+                    <TextBox x:Name="UserNameInput"
+                             Text="{Binding Username}"
+                             TextWrapping="Wrap"
+                             Width="300"
+                             Height="30"
+                             Background="White"
+                             FontSize="18"
+                             Margin="0,-5,0,0" />
+                    <TextBlock  TextWrapping="Wrap"
+                                Text="Password"
+                                TextAlignment="Left"
+                                Margin="20,20,232,15"
+                                FontSize="18" />
+                    <PasswordBox Margin="0,-5,0,0"
+                                 Height="30"
+                                 Width="300"
+                                 FontSize="18"
+                                 PasswordChanged="PasswordBox_PasswordChanged" />
+                    <Button Content="Вход"
+                            Height="30"
+                            Width="100"
+                            HorizontalAlignment="Right"
+                            Margin="0,15,50,0"
+                            Command="{Binding Command}"
+                            CommandParameter="Menu"></Button>
 
                 </StackPanel>
             </Border>

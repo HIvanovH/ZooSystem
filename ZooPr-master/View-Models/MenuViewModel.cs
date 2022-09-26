@@ -16,17 +16,18 @@ namespace Zoo.View_Models
         private ViewModelBase _optionViewModel;
         private ICommand _openAnimalsCommand;
         private ICommand _openEventsCommand;
-        public ViewModelBase OptionViewModel 
-        { 
-            get 
+        public ViewModelBase OptionViewModel
+        {
+            get
             { return _optionViewModel; }
-            set{
+            set
+            {
                 _optionViewModel = value;
-                OnPropertyChanged("OptionViewModel"); 
-            } 
+                OnPropertyChanged("OptionViewModel");
+            }
         }
 
-       
+
         public ICommand OpenAnimalsCommand
         {
             get { return _openAnimalsCommand ?? (_openAnimalsCommand = new DelegateCommand(p => OpenAnimalsView())); }
@@ -41,7 +42,8 @@ namespace Zoo.View_Models
             get { return _openEventsCommand ?? (_openEventsCommand = new DelegateCommand(p => OpenEventsView())); }
         }
 
-        private void OpenAnimalsView() {
+        private void OpenAnimalsView()
+        {
             OptionViewModel = new AnimalViewModel();
         }
         private void OpenTicketsView()

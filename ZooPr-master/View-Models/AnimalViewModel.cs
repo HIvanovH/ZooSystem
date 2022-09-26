@@ -21,19 +21,19 @@ namespace Zoo.View_Models
         private Category _sCategory;
         private AnimalToDisplay _sAnimal;
         private ICommand _searchAnimals;
-        private  DelegateCommand loginCommand;
+        private DelegateCommand loginCommand;
         public ICommand SearchAnimals
         {
             get
             {
-                return  loginCommand ?? (loginCommand = new DelegateCommand(context =>
+                return loginCommand ?? (loginCommand = new DelegateCommand(context =>
                 {
                     SearchAnimalAction();
                 }));
             }
         }
-        
-        
+
+
         public void SearchAnimalAction()
         {
             if (SCategory == null)
@@ -57,13 +57,13 @@ namespace Zoo.View_Models
         {
             Categories = zooDbContext.Category.Select(t => t).ToList();
         }
-            //fills in information in the table (Animals) if empty
+        //fills in information in the table (Animals) if empty
         public void FillDatabase()
         {
             if (zooDbContext.Animal.ToList().Count == 0)
             {
-                Animal animal1 = new Animal("Лъв","Едър мъжки на 10 годишна възраст"
-                    ,File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Lion_waiting_in_Namibia.jpg"),2);
+                Animal animal1 = new Animal("Лъв", "Едър мъжки на 10 годишна възраст"
+                    , File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Lion_waiting_in_Namibia.jpg"), 2);
                 Animal animal2 = new Animal("Орел", "Едър мъжки на 3 годишна възраст"
                     , File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Orel.jpg"), 3);
                 Animal animal3 = new Animal("Усойница", "Женска на 2 годишна възраст"
@@ -77,14 +77,18 @@ namespace Zoo.View_Models
         public AnimalToDisplay SAnimal
         {
             get { return _sAnimal; }
-            set { _sAnimal = value;
+            set
+            {
+                _sAnimal = value;
                 OnPropertyChanged("SAnimal");
-            }   
+            }
         }
         public List<AnimalToDisplay> Animals
         {
             get { return _animals; }
-            set { _animals = value;
+            set
+            {
+                _animals = value;
                 OnPropertyChanged("Animals");
             }
         }

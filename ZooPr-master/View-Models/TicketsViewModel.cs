@@ -25,20 +25,20 @@ namespace Zoo.View_Models
 
         private ICommand _saveTicketsToDb;
         private ICommand _displayTicketsOnTable;
-        
+
         public double FinalPrice { get { return _finalPrice; } set { _finalPrice = value; OnPropertyChanged("FinalPrice"); } }
         public TicketsViewModel()
         {
             DisplayTicketsType();
-            
+
             _ticketsList = new List<Ticket>();
             FinalPrice = 0;
         }
-        
+
         public void DisplayTicketsType()
         {
             //displays all types of tickets in a combobox
-            TicketsTypes = zooDbContext.TicketsType.Select(t => t).ToList(); 
+            TicketsTypes = zooDbContext.TicketsType.Select(t => t).ToList();
         }
 
 
@@ -70,8 +70,9 @@ namespace Zoo.View_Models
         }
         public void MyAction()
         {
-            if (SType != null){
-                if ((int)SValue!=0)
+            if (SType != null)
+            {
+                if ((int)SValue != 0)
                 {
                     Ticket = new Ticket();
                     Ticket.Type = SType.Type;
@@ -88,10 +89,10 @@ namespace Zoo.View_Models
             {
                 MessageBox.Show("Моля изберете тип на билета!");
             }
-            
-           
+
+
         }
-       
+
 
         public List<TicketsType> TicketsTypes
         {
@@ -123,24 +124,30 @@ namespace Zoo.View_Models
         public Ticket Ticket
         {
             get { return ticket; }
-            set { ticket = value; 
+            set
+            {
+                ticket = value;
                 OnPropertyChanged("Ticket");
             }
         }
         public TicketsType SType
         {
             get { return _sType; }
-            set { _sType = value;
+            set
+            {
+                _sType = value;
                 OnPropertyChanged("SType");
-                
+
             }
         }
         public double SValue
         {
             get { return _sValue; }
-            set {_sValue = value;
+            set
+            {
+                _sValue = value;
                 OnPropertyChanged("SValue");
-                
+
             }
         }
     }

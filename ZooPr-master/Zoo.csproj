@@ -12,18 +12,25 @@
     <None Remove="Pictures\zoo3.jpg" />
     <None Remove="Pictures\zoo5.jpg" />
     <None Remove="Pictures\zoo8.jpg" />
+    <None Remove="Pictures\ZooWithPeople - Copy.jpg" />
     <None Remove="Pictures\ZooWithPeople.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="20.2.0.39" />
     <PackageReference Include="Syncfusion.Tools.WPF.Classic" Version="19.4.0.56" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Pictures\logo.png" />
-    <Resource Include="Pictures\zoo5.jpg" />
+    <EmbeddedResource Include="Pictures\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pictures\zoo5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pictures\ZooWithPeople - Copy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

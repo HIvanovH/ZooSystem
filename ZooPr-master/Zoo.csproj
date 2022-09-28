@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <None Remove="Pictures\logo.png" />
-    <None Remove="Pictures\SeaAnimals.jpg" />
-    <None Remove="Pictures\zoo2.jpg" />
     <None Remove="Pictures\zoo3.jpg" />
     <None Remove="Pictures\zoo5.jpg" />
     <None Remove="Pictures\zoo8.jpg" />
@@ -25,12 +23,7 @@
 
   <ItemGroup>
     <Resource Include="Pictures\logo.png" />
-    <Resource Include="Pictures\SeaAnimals.jpg" />
-    <Resource Include="Pictures\zoo2.jpg" />
-    <Resource Include="Pictures\zoo3.jpg" />
     <Resource Include="Pictures\zoo5.jpg" />
-    <Resource Include="Pictures\zoo8.jpg" />
-    <Resource Include="Pictures\ZooWithPeople.jpg" />
   </ItemGroup>
 
   <ItemGroup>

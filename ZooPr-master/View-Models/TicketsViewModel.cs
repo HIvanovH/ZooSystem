@@ -13,7 +13,7 @@ namespace Zoo.View_Models
 {
     public class TicketsViewModel : ViewModelBase
     {
-        private ZooDbContext zooDbContext = new ZooDbContext();
+        //private ZooDbContext zooDbContext = new ZooDbContext();
         private List<TicketsType> _ticketsTypes;
         private List<Ticket> _ticketsList;
         private List<Ticket> _ticketsDisplay;
@@ -26,7 +26,12 @@ namespace Zoo.View_Models
         private ICommand _saveTicketsToDb;
         private ICommand _displayTicketsOnTable;
 
-        public double FinalPrice { get { return _finalPrice; } set { _finalPrice = value; OnPropertyChanged("FinalPrice"); } }
+        public double FinalPrice 
+        { 
+            get { return _finalPrice; } 
+            set { _finalPrice = value; 
+                OnPropertyChanged("FinalPrice"); } 
+        }
         public TicketsViewModel()
         {
             DisplayTicketsType();
@@ -82,12 +87,12 @@ namespace Zoo.View_Models
                     TicketsDisplay = new List<Ticket>(TicketsList);
                     FinalPrice += SType.price * SValue;
                 }
-                else { MessageBox.Show("Броят на билетите не може да бъде по-малък от 1!"); }
+                else { MessageBox.Show("Броят на билетите не може да бъде по-малък от 1"); }
 
             }
             else
             {
-                MessageBox.Show("Моля изберете тип на билета!");
+                MessageBox.Show("Моля изберете тип на билета");
             }
 
 

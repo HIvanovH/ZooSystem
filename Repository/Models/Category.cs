@@ -12,5 +12,7 @@ namespace Repository.Models
         [Key]
         public int IdCat{ get; set; }
         public string Name { get; set; }
+
+       
     }
 }

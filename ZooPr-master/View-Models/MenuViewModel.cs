@@ -1,5 +1,6 @@
 ﻿using Syncfusion.Windows.Shared;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,9 @@ namespace Zoo.View_Models
         {
             OptionViewModel = new EventsViewModel();
         }
-
+        public MenuViewModel()
+        {
+            OptionViewModel = new AnimalViewModel();
+        }
     }
 }

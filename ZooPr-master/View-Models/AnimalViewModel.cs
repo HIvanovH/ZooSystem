@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Zoo.Data;
 using Zoo.Models;
 
 
@@ -15,7 +14,7 @@ namespace Zoo.View_Models
 {
     public class AnimalViewModel : ViewModelBase
     {
-        private ZooDbContext zooDbContext = new ZooDbContext();
+        //private ZooDbContext zooDbContext = new ZooDbContext();
         private List<AnimalToDisplay> _animals;
         private List<Category> _categories;
         private Category _sCategory;
@@ -57,23 +56,7 @@ namespace Zoo.View_Models
         {
             Categories = zooDbContext.Category.Select(t => t).ToList();
         }
-        //fills in information in the table (Animals) if empty
-        public void FillDatabase()
-        {
-            if (zooDbContext.Animal.ToList().Count == 0)
-            {
-                Animal animal1 = new Animal("Лъв", "Едър мъжки на 10 годишна възраст"
-                    , File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Lion_waiting_in_Namibia.jpg"), 2);
-                Animal animal2 = new Animal("Орел", "Едър мъжки на 3 годишна възраст"
-                    , File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Orel.jpg"), 3);
-                Animal animal3 = new Animal("Усойница", "Женска на 2 годишна възраст"
-                    , File.ReadAllBytes("D:/Microinvest/Zoo/Pictures/Usoinica.jpg"), 1);
-                zooDbContext.Animal.Add(animal1);
-                zooDbContext.Animal.Add(animal2);
-                zooDbContext.Animal.Add(animal3);
-                zooDbContext.SaveChanges();
-            }
-        }
+        
         public AnimalToDisplay SAnimal
         {
             get { return _sAnimal; }
@@ -112,7 +95,7 @@ namespace Zoo.View_Models
         }
         public AnimalViewModel()
         {
-            FillDatabase();
+           
             FillCombobox();
         }
     }

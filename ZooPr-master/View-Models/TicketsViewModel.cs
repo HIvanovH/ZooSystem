@@ -1,19 +1,15 @@
 ﻿using Syncfusion.Windows.Shared;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using Zoo.Data;
+
 using Zoo.Models;
 
 namespace Zoo.View_Models
 {
     public class TicketsViewModel : ViewModelBase
     {
-        //private ZooDbContext zooDbContext = new ZooDbContext();
+       
         private List<TicketsType> _ticketsTypes;
         private List<Ticket> _ticketsList;
         private List<Ticket> _ticketsDisplay;
@@ -43,7 +39,7 @@ namespace Zoo.View_Models
         public void DisplayTicketsType()
         {
             //displays all types of tickets in a combobox
-            TicketsTypes = zooDbContext.TicketsType.Select(t => t).ToList();
+           
         }
 
 

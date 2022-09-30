@@ -52,7 +52,7 @@
                          MinWidth="200">
                     <Border.Background>
                         <ImageBrush Stretch="Fill"
-                                    ImageSource="/Pictures/ZooWithPeople.jpg"></ImageBrush>
+                                    ImageSource="/Pictures/ZooWithPeople - Copy.jpg"></ImageBrush>
                     </Border.Background>
 
                 </Border>

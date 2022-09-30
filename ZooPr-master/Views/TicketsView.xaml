@@ -10,10 +10,10 @@
              d:DesignWidth="860">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="7*" />
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="5*" />
+            
         </Grid.RowDefinitions>
         <ComboBox ItemsSource="{Binding TicketsTypes}"
                   DisplayMemberPath="Type"
@@ -39,7 +39,7 @@
             <Border.Background>
                 <SolidColorBrush Color="AntiqueWhite"></SolidColorBrush>
             </Border.Background>
-            <TextBlock HorizontalAlignment="Stretch"
+            <TextBlock HorizontalAlignment="Center"
                        TextWrapping="NoWrap"
                        Text="Билети"
                        VerticalAlignment="Stretch"
@@ -57,13 +57,10 @@
                VerticalAlignment="Center"
                FontSize="16"
                Background="AntiqueWhite" />
-        
 
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Left">
+
             <GroupBox Height="60"
                       Width="200"
                       Header="Брой билети"
@@ -76,7 +73,7 @@
                       BorderBrush="Black"
                       Foreground="Black"
                       Background="AntiqueWhite">
-               
+
                 <syncfusion:UpDown FontSize="18"
                                    NumberDecimalDigits="0"
                                    MinValue="0"
@@ -88,15 +85,33 @@
                                    UseNullOption="True"
                                    VerticalAlignment="Top"
                                    Width="180"
-                                   Culture="en-US"/>
+                                   Culture="en-US" />
 
 
             </GroupBox>
+            <Button Content="Добави"
+                    Width="120"
+                    Height="30"
+                    FontSize="18"
+                    Margin="30,33,0,0"
+                    Command="{Binding DisplayTicketsOnTable}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Background="AntiqueWhite">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius"
+                                Value="10" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
             <GroupBox Height="150"
                       Width="400"
                       Header="Резултати"
                       Grid.Row="0"
-                      HorizontalAlignment="Center"
+                      HorizontalAlignment="Left"
                       VerticalAlignment="Top"
                       FontSize="16"
                       FontWeight="Bold"
@@ -120,6 +135,7 @@
                     </ListView.View>
                 </ListView>
             </GroupBox>
+            
             <GroupBox Height="80"
                       Width="200"
                       Header="Крайна цена в лв"
@@ -140,30 +156,15 @@
                            TextWrapping="Wrap"
                            VerticalAlignment="Center" />
             </GroupBox>
-            <Button Grid.Row="1"
-                    Content="Добави"
-                    Width="120"
-                    Height="30"
-                    FontSize="18"
-                    Margin="30,33,0,0"
-                    Command="{Binding DisplayTicketsOnTable}"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Background="AntiqueWhite">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius"
-                                Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
+            
             <Button Command="{Binding SaveTicketsToDb}"
                     Grid.Row="1"
                     Content="Купи"
                     Width="120"
                     Height="30"
                     FontSize="18"
-                    Margin="510,33,230,82"
+                    HorizontalAlignment="Right"
+                    Margin="15"
                     Background="AntiqueWhite">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -172,7 +173,10 @@
                     </Style>
                 </Button.Resources>
             </Button>
-        </Grid>
+        </StackPanel>
+            
+            
+        
 
 
 

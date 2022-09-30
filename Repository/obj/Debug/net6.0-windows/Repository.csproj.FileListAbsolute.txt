@@ -4,6 +4,8 @@ E:\Projects\Zoo\ZooSystem\Repository\bin\Debug\net6.0-windows\Repository.runtime
 E:\Projects\Zoo\ZooSystem\Repository\bin\Debug\net6.0-windows\Repository.dll
 E:\Projects\Zoo\ZooSystem\Repository\bin\Debug\net6.0-windows\Repository.pdb
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.csproj.AssemblyReference.cache
+E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.Migrations.InitialCreate.resources
+E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.csproj.GenerateResource.cache
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.GeneratedMSBuildEditorConfig.editorconfig
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.AssemblyInfoInputs.cache
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.AssemblyInfo.cs
@@ -13,5 +15,3 @@ E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\refint\Repository.
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.pdb
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.genruntimeconfig.cache
 E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\ref\Repository.dll
-E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.Migrations.InitialCreate.resources
-E:\Projects\Zoo\ZooSystem\Repository\obj\Debug\net6.0-windows\Repository.csproj.GenerateResource.cache

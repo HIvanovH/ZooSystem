@@ -35,26 +35,11 @@ namespace Zoo.View_Models
 
         public void SearchAnimalAction()
         {
-            if (SCategory == null)
-            {
-                Animals = (from Animal in zooDbContext.Animal
-                           join Category in zooDbContext.Category on Animal.IdCat equals Category.IdCat
-                           select new AnimalToDisplay() { Name = Animal.Name, Description = Animal.Description, Image = Animal.Picture, Category = Category.Name }).ToList();
-
-            }
-            else
-            {
-                Animals = (from Animal in zooDbContext.Animal
-                           join Category in zooDbContext.Category on Animal.IdCat equals Category.IdCat
-                           where Animal.IdCat == SCategory.IdCat
-                           select new AnimalToDisplay() { Name = Animal.Name, Description = Animal.Description, Image = Animal.Picture, Category = Category.Name }).ToList();
-
-            }
 
         }
         public void FillCombobox()
         {
-            Categories = zooDbContext.Category.Select(t => t).ToList();
+          
         }
         
         public AnimalToDisplay SAnimal

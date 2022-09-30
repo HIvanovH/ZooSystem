@@ -17,7 +17,7 @@
                   DisplayMemberPath="Name"
                   SelectedItem="{Binding Path=SCategory}"
                   SelectedValuePath="Name"
-                  SelectedValue="{Binding Name, Mode=TwoWay}"
+                  SelectedValue="{Binding Name, Mode=TwoWay }"
                   FontSize="20"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Left"

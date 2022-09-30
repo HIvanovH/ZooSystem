@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using Zoo.Commands;
-using Zoo.Data;
 using Zoo.Models;
-using Zoo.Services;
 
 namespace Zoo.View_Models
 {
     public class LoginViewModel : ViewModelBase
     {
-        public ZooDbContext dBContext = new ZooDbContext();
         private string _username;
         private string _password;
         private readonly MainViewModel _mainViewModel;

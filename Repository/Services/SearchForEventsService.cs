@@ -8,43 +8,37 @@ using System.Threading.Tasks;
 
 namespace Repository.Services
 {
-    public class SearchForEventsService : BaseService
+    public class SearchForEventsService 
     {
         private static readonly SearchForEventsService _searchForEventsService = new SearchForEventsService();
         public static SearchForEventsService GetSearchForAnimalService()
         {
             return _searchForEventsService;
         }
-        public List<Event> SearchForEvents(DateTime? date, EventsType eventsType)
+        private SearchForEventsService()
+        {
+
+        }
+        public List<Event> SearchForEvents(DateTime? date, EventsType? eventsType)
         {
             //checks if date is null or not and checks if the type for event chosen by the user is null or not
             //then selects the events by the condition
-            if (date != null && eventsType == null)
+            
+            using(var db = new ZooDbContext())
             {
-                 return _db.Event.Where(e => e.Date == date).
-              Select(e => e).ToList();
+                return db.Event.Where(e => (eventsType != null) ? e.Date == date && e.EventsType.IdType == eventsType.IdType : true)
+             .ToList();
             }
-            else if (date == null && eventsType != null)
-            {
-                return _db.Event.Where(e => e.IdType == eventsType.IdType).
-                Select(e => e).ToList();
-            }
-            else if (date != null && eventsType != null)
-            {
-                return _db.Event.Where(e => e.IdType == eventsType.IdType && e.Date == date).
-                     Select(e=>e).ToList();
-            }
-            else
-            {
-               return _db.Event.Where(e => e.IdType == eventsType.IdType && e.Date == date).
-                     Select(e => e).ToList();
-            }
+           
+
+            
         }
 
         public List<EventsType> DisplayEventType()
         {
             //rerutns all event types
-            return _db.EventsType.Select(t => t).ToList();
+            var db = new ZooDbContext();
+            return db.EventsType.ToList();
         }
     }
 }

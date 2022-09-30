@@ -22,12 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Pictures\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Pictures\zoo5.jpg">
+    <EmbeddedResource Include="Pictures\zoo5.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
     <Resource Include="Pictures\ZooWithPeople - Copy.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

@@ -21,6 +21,7 @@ namespace Zoo.View_Models
         private AnimalToDisplay _sAnimal;
         private ICommand _searchAnimals;
         private DelegateCommand loginCommand;
+         
         public ICommand SearchAnimals
         {
             get
@@ -35,7 +36,7 @@ namespace Zoo.View_Models
 
         public void SearchAnimalAction()
         {
-
+           Repository.Services.SearchForAnimalService.GetSearchForAnimalService().SearchAnimal();
         }
         public void FillCombobox()
         {

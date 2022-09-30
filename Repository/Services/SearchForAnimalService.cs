@@ -8,21 +8,26 @@ using System.Threading.Tasks;
 
 namespace Repository.Services
 {
-    public class SearchForAnimalService : BaseService
+    public class SearchForAnimalService
     {
         private static readonly SearchForAnimalService _searchForAnimalService = new SearchForAnimalService();
         public static SearchForAnimalService GetSearchForAnimalService()
         {
             return _searchForAnimalService;
         }
+        private SearchForAnimalService()
+        {
 
+        }
         public List<Animal> SearchAnimal()
         {
-            return _db.Animal.ToList(); 
+            var db = new ZooDbContext();
+            return db.Animal.ToList(); 
         }
         public List<Animal> SearchAnimal(Category SCategory)
         {
-            return _db.Animal.Where(a=>a.Category==SCategory).ToList();
+            var db = new ZooDbContext();
+            return db.Animal.Where(a=> (SCategory!=null)? a.Category.IdCat==SCategory.IdCat : true).ToList();
         }
 
     }

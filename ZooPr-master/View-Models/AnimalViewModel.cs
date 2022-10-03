@@ -1,5 +1,4 @@
-﻿
-using Syncfusion.Windows.Shared;
+﻿using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Zoo.Models;
+using Repository.Services;
+using Zoo.Services;
 
 
 namespace Zoo.View_Models
@@ -16,17 +17,16 @@ namespace Zoo.View_Models
     {
         //private ZooDbContext zooDbContext = new ZooDbContext();
         private List<AnimalToDisplay> _animals;
-        private List<Category> _categories;
-        private Category _sCategory;
+        private List<SpeciesToDisplay> _categories;
+        private SpeciesToDisplay _sCategory;
         private AnimalToDisplay _sAnimal;
-        private ICommand _searchAnimals;
-        private DelegateCommand loginCommand;
+        private DelegateCommand command;
          
         public ICommand SearchAnimals
         {
             get
             {
-                return loginCommand ?? (loginCommand = new DelegateCommand(context =>
+                return command ?? (command = new DelegateCommand(context =>
                 {
                     SearchAnimalAction();
                 }));
@@ -36,11 +36,11 @@ namespace Zoo.View_Models
 
         public void SearchAnimalAction()
         {
-           Repository.Services.SearchForAnimalService.GetSearchForAnimalService().SearchAnimal();
+            Animals = WrapAnimalService.GetWrapAnimalService().WrapAnimalToDisplay();
         }
         public void FillCombobox()
         {
-          
+            Categories = WrapSpecies.GetWrapSpecies().WrapWrapSpecies();
         }
         
         public AnimalToDisplay SAnimal
@@ -61,7 +61,7 @@ namespace Zoo.View_Models
                 OnPropertyChanged("Animals");
             }
         }
-        public Category SCategory
+        public SpeciesToDisplay SCategory
         {
             get { return _sCategory; }
             set
@@ -70,7 +70,7 @@ namespace Zoo.View_Models
                 OnPropertyChanged("SCategory");
             }
         }
-        public List<Category> Categories
+        public List<SpeciesToDisplay> Categories
         {
             get { return _categories; }
             set

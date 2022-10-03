@@ -29,9 +29,9 @@
     <Resource Include="Pictures\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <EmbeddedResource Include="Pictures\zoo5.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Resource Include="Pictures\zoo5.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Pictures\ZooWithPeople - Copy.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

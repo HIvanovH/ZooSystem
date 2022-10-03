@@ -56,7 +56,7 @@
                     Type = "За възрастни"
                 }, new EventsType()
                 {
-                    IdType= 2,
+                    IdType = 2,
                     Type = "За деца"
                 }, new EventsType()
                 {
@@ -92,31 +92,31 @@
                 new Event()
                 {
                     Id = 4,
-                    Name = "Хранене на Маймуни", 
+                    Name = "Хранене на Маймуни",
                     Date = new DateTime(2022, 9, 9),
                     IdType = 3,
                     Description = "Имате възможност да се доближите до маймуните в парка и да се снимате с тях"
                 });
 
-                context.TicketsType.AddOrUpdate(
-                new TicketsType()
-                {
-                    IdTypeTicket = 1,
-                    Type = "Индивидуален",
-                    price = 9
-                },
-                new TicketsType()
-                {
-                    IdTypeTicket = 2,
-                    Type = "Ученически",
-                    price = 6
-                },
-                new TicketsType()
-                {
-                    IdTypeTicket = 3,
-                    Type = "Семеен",
-                    price = 12
-                });
+            context.TicketsType.AddOrUpdate(
+            new TicketsType()
+            {
+                IdTypeTicket = 1,
+                Type = "Индивидуален",
+                price = 9
+            },
+            new TicketsType()
+            {
+                IdTypeTicket = 2,
+                Type = "Ученически",
+                price = 6
+            },
+            new TicketsType()
+            {
+                IdTypeTicket = 3,
+                Type = "Семеен",
+                price = 12
+            });
             context.User.AddOrUpdate(
                 new User()
                 {
@@ -126,6 +126,6 @@
                 });
 
         }
-        
+
     }
 }

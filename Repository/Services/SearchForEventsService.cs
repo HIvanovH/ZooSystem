@@ -23,12 +23,11 @@ namespace Repository.Services
         {
             //checks if date is null or not and checks if the type for event chosen by the user is null or not
             //then selects the events by the condition
-            
-            using(var db = new ZooDbContext())
-            {
-                return db.Event.Where(e => (eventsType != null) ? e.Date == date && e.EventsType.IdType == eventsType.IdType : true)
+
+            var db = new ZooDbContext();
+            return db.Event.Where(e => (eventsType != null) ? e.Date == date && e.EventsType.IdType == eventsType.IdType : true)
              .ToList();
-            }
+            
            
 
             

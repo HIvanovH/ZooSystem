@@ -10,7 +10,7 @@ namespace Repository.Models
     public class EventsType
     {
         [Key]
-        public int IdType { get; set; }
+        public int TypeId { get; set; }
         public string Type { get; set; }
 
     }

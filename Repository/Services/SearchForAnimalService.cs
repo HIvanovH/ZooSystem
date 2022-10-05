@@ -29,7 +29,7 @@ namespace Repository.Services
             {
                 return db.Animal.ToList();
             }
-            return db.Animal.Where(a=> a.Category.IdCat==SCategory.IdCat).ToList();
+            return db.Animal.Where(a=> a.Category.CategoryId==SCategory.CategoryId).ToList();
         }
 
     }

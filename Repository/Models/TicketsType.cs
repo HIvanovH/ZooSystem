@@ -10,7 +10,7 @@ namespace Repository.Models
     public class TicketsType
     {
         [Key]
-        public int IdTypeTicket { get; set; }
+        public int TypeTicketId { get; set; }
         public string Type { get; set; }
         public double price { get; set; }
     }

@@ -6,7 +6,6 @@
              xmlns:viewmodels="clr-namespace:Zoo.View_Models"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
-        
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>

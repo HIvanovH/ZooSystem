@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Zoo.Commands;
 using Zoo.Models;
+using Zoo.Views;
 
 namespace Zoo.View_Models
 {
@@ -38,7 +39,7 @@ namespace Zoo.View_Models
         }
         public void LoginSuccessfully()
         {
-            var win = new Window();
+            var win = new MainWindow();
             win.Content = new MenuViewModel();
             win.Show();
             Application.Current.MainWindow.Close();

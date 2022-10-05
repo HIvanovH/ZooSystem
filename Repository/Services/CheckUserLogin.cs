@@ -34,7 +34,7 @@ namespace Repository.Services
                     User user = db.User.Where(u => u.Name == username && u.Password == password).FirstOrDefault();
                     if(user != null)
                     {
-                        return user.IdUser;
+                        return user.UserId;
                     }
                 }catch(Exception ex)
                 {

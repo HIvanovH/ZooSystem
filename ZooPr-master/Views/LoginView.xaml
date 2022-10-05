@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Height="680"
         Width="900"
+        Icon="/Pictures/logo.png"
         ResizeMode="NoResize">
     <Window.DataContext>
         <viewModels:LoginViewModel />

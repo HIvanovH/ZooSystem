@@ -16,7 +16,7 @@ namespace Repository.Models
         public DateTime Date { get; set; }
         public string Description { get; set; }
         [ForeignKey(nameof(EventsType))]
-        public int IdType { get; set; }
+        public int TypeId { get; set; }
         public virtual EventsType EventsType { get; set; }
         
     }

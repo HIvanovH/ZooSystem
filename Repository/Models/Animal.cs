@@ -22,7 +22,7 @@ namespace Repository.Models
             Name = name;
             Description = description;
             Picture = picture;
-            IdCat = categoryId;
+            CategoryId = categoryId;
         }
 
         [Key]
@@ -32,7 +32,7 @@ namespace Repository.Models
         public string Description { get; set; }
         public byte[] Picture { get; set; }
         [ForeignKey(nameof(Category))]
-        public int IdCat { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
 

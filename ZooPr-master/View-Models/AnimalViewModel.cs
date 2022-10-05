@@ -17,7 +17,7 @@ namespace Zoo.View_Models
     {
         private List<Animal> _animals;
         private List<Category> _categories;
-        private Category _selectedCategory;
+        private Category? _selectedCategory;
         private Animal _selectedAnimal;
         private DelegateCommand command;
          
@@ -58,11 +58,12 @@ namespace Zoo.View_Models
                 OnPropertyChanged(nameof(Animals));
             }
         }
-        public Category SelectedCategory
+        public Category? SelectedCategory
         {
             get { return _selectedCategory; }
             set
             {
+                
                 _selectedCategory = value;
                 OnPropertyChanged(nameof(SelectedCategory));
             }
@@ -78,8 +79,9 @@ namespace Zoo.View_Models
         }
         public AnimalViewModel()
         {
-           
+            Categories = new List<Category>();
             FillCombobox();
+           
         }
     }
 }

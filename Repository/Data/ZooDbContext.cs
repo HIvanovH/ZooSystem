@@ -15,6 +15,6 @@ namespace Repository.Data
         public DbSet<Event> Event { get; set; }
         public DbSet<EventsType> EventsType { get; set; }
         public DbSet<TicketsType> TicketsType { get; set; }
-        public DbSet<UserOrdercs> UserOrdercs { get; set; }
+        public DbSet<UserOrders> UserOrders { get; set; }
     }
 }

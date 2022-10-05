@@ -41,7 +41,7 @@ namespace Zoo.View_Models
             //TODO...
             List<Ticket> ticketsToSave = new List<Ticket>();
             ticketsToSave.AddRange(TicketsList);
-            SaveOrders.GetSaveOrders().SaveChanges(ticketsToSave);
+            WrapOrders.GetSaveOrders().SaveChanges(ticketsToSave);
             TicketsList.Clear();
             FinalPrice = 0;
             SelectedValue = 0;
@@ -56,7 +56,7 @@ namespace Zoo.View_Models
                 {
                     Ticket = new Ticket();
                     Ticket.Type = SelectedType.Type;
-                    Ticket.IdType = SelectedType.IdTypeTicket;
+                    Ticket.IdType = SelectedType.TypeTicketId;
                     Ticket.Price = SelectedType.price;
                     Ticket.Number = (int)SelectedValue;
                     TicketsList.Add(Ticket);

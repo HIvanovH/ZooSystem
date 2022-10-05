@@ -37,7 +37,7 @@ namespace Repository.Services
             {
                 return zooDbContext
                     .Event
-                    .Where(e => e.IdType == eventsType.IdType)
+                    .Where(e => e.TypeId == eventsType.TypeId)
                     .ToList();
 
             }
@@ -45,7 +45,7 @@ namespace Repository.Services
             {
                 return zooDbContext
                     .Event
-                    .Where(e => e.IdType == eventsType.IdType && e.Date == date)
+                    .Where(e => e.TypeId == eventsType.TypeId && e.Date == date)
                     .ToList();
 
             }

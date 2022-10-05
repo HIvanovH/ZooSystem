@@ -10,13 +10,9 @@
         Height="auto"
         Width="auto"
         MinHeight="800"
-        MinWidth="1350">
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
-            <local:Menu />
-        </DataTemplate>
-    </Window.Resources>
+        MinWidth="1350"
+        Icon="/Pictures/logo.png">
     
-    
-</Window>
 
+
+</Window>

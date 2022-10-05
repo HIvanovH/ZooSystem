@@ -11,22 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            
             <RowDefinition Height="5*" />
             
         </Grid.RowDefinitions>
-        <ComboBox ItemsSource="{Binding TicketsTypes}"
-                  DisplayMemberPath="Type"
-                  SelectedItem="{Binding Path=SType}"
-                  SelectedValuePath="Type"
-                  SelectedValue="{Binding Name, Mode=TwoWay}"
-                  FontSize="18"
-                  HorizontalAlignment="Left"
-                  Margin="165,0,0,0"
-                  Grid.Row="1"
-                  VerticalAlignment="Center"
-                  Width="175"
-                  Height="30" />
+
+
 
 
         <Border Grid.Row="0"
@@ -49,134 +39,146 @@
                        Foreground="#FFFF8000"
                        Height="45" />
         </Border>
-
-        <Label Content="Тип на билета"
-               HorizontalAlignment="Left"
-               Margin="30,0,0,0"
-               Grid.Row="1"
-               VerticalAlignment="Center"
-               FontSize="16"
-               Background="AntiqueWhite" />
-
-
-        <StackPanel Grid.Row="2" HorizontalAlignment="Left">
-
-            <GroupBox Height="60"
-                      Width="200"
-                      Header="Брой билети"
-                      Grid.Row="0"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Top"
-                      Margin="30,0,0,0"
-                      FontSize="16"
-                      FontWeight="Bold"
-                      BorderBrush="Black"
-                      Foreground="Black"
-                      Background="AntiqueWhite">
-
-                <syncfusion:UpDown FontSize="18"
-                                   NumberDecimalDigits="0"
-                                   MinValue="0"
-                                   Value="{Binding SValue}"
-                                   Foreground="Black"
-                                   HorizontalAlignment="Left"
-                                   Height="30"
-                                   NullValueText="Enter your weight:"
-                                   UseNullOption="True"
-                                   VerticalAlignment="Top"
-                                   Width="180"
-                                   Culture="en-US" />
-
-
-            </GroupBox>
-            <Button Content="Добави"
-                    Width="120"
-                    Height="30"
-                    FontSize="18"
-                    Margin="30,33,0,0"
-                    Command="{Binding DisplayTicketsOnTable}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Background="AntiqueWhite">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius"
-                                Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </StackPanel>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
-            <GroupBox Height="150"
-                      Width="400"
-                      Header="Резултати"
-                      Grid.Row="0"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Top"
-                      FontSize="16"
-                      FontWeight="Bold"
-                      BorderBrush="Black"
-                      Background="AntiqueWhite">
-                <ListView ItemsSource="{Binding TicketsDisplay}"
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal">
+            <StackPanel Grid.Row="1"
+                        HorizontalAlignment="Left"
+                        Margin="10">
+                <GroupBox Header="Брой билети"
+                          HorizontalAlignment="Left"
                           FontSize="16"
+                          FontWeight="Bold"
+                          BorderBrush="Black"
+                          Foreground="Black">
+                    <ComboBox ItemsSource="{Binding TicketsTypes}"
+                              DisplayMemberPath="Type"
+                              SelectedItem="{Binding Path=SelectedType}"
+                              SelectedValuePath="Type"
+                              SelectedValue="{Binding Name, Mode=TwoWay}"
+                              FontSize="18"
+                              HorizontalAlignment="Left"
+                              Margin="15,5,5,5"
+                              Grid.Row="1"
+                              VerticalAlignment="Center"
+                              Width="175"
+                              Height="30" />
+                </GroupBox>
+                <GroupBox Height="60"
+                          Width="200"
+                          Header="Брой билети"
+                          Grid.Row="0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Margin="15,0,0,0"
+                          FontSize="16"
+                          FontWeight="Bold"
+                          BorderBrush="Black"
+                          Foreground="Black"
                           Background="AntiqueWhite">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding Type}"
-                                            Header="Тип на билета"
-                                            Width="130" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Price}"
-                                            Header="Цена в лв."
-                                            Width="130" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Number}"
-                                            Header="Брой"
-                                            Width="100" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </GroupBox>
-            
-            <GroupBox Height="80"
-                      Width="200"
-                      Header="Крайна цена в лв"
-                      Grid.Row="1"
-                      HorizontalAlignment="Left"
-                      Margin="230,10,0,0"
-                      VerticalAlignment="Top"
-                      FontSize="16"
-                      FontWeight="Bold"
-                      BorderBrush="Black"
-                      Foreground="#FF0E0E0E"
-                      Background="AntiqueWhite">
-                <TextBlock Text="{Binding FinalPrice}"
-                           TextAlignment="Center"
-                           FontSize="22"
-                           HorizontalAlignment="Stretch"
-                           Margin="10,0,10,0"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Center" />
-            </GroupBox>
-            
-            <Button Command="{Binding SaveTicketsToDb}"
-                    Grid.Row="1"
-                    Content="Купи"
-                    Width="120"
-                    Height="30"
-                    FontSize="18"
-                    HorizontalAlignment="Right"
-                    Margin="15"
-                    Background="AntiqueWhite">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius"
-                                Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
+
+                    <syncfusion:UpDown FontSize="18"
+                                       NumberDecimalDigits="0"
+                                       MinValue="0"
+                                       Value="{Binding SelectedValue}"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Left"
+                                       Height="30"
+                                       NullValueText="Enter your weight:"
+                                       UseNullOption="True"
+                                       VerticalAlignment="Top"
+                                       Width="180"
+                                       Culture="en-US" />
+
+
+                </GroupBox>
+                <Button Content="Добави"
+                        Width="120"
+                        Height="30"
+                        FontSize="18"
+                        Margin="10"
+                        Command="{Binding DisplayTicketsOnTable}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Background="AntiqueWhite">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius"
+                                    Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="15">
+                <GroupBox Height="150"
+                          Width="400"
+                          Header="Резултати"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          FontSize="16"
+                          FontWeight="Bold"
+                          BorderBrush="Black"
+                          Background="AntiqueWhite">
+                    <ListView ItemsSource="{Binding TicketsList}"
+                              FontSize="16"
+                              Background="AntiqueWhite">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Type}"
+                                                Header="Тип на билета"
+                                                Width="130" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Price}"
+                                                Header="Цена в лв."
+                                                Width="130" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Number}"
+                                                Header="Брой"
+                                                Width="100" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </GroupBox>
+
+                <GroupBox Height="80"
+                          Width="200"
+                          Header="Крайна цена в лв"
+                          HorizontalAlignment="Right"
+                          Margin="10"
+                          VerticalAlignment="Top"
+                          FontSize="16"
+                          FontWeight="Bold"
+                          BorderBrush="Black"
+                          Foreground="#FF0E0E0E"
+                          Background="AntiqueWhite">
+                    <TextBlock Text="{Binding FinalPrice}"
+                               TextAlignment="Center"
+                               FontSize="22"
+                               HorizontalAlignment="Stretch"
+                               Margin="10,0,10,0"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center" />
+                </GroupBox>
+
+                <Button Command="{Binding SaveTicketsToDb}"
+                        Content="Купи"
+                        Width="120"
+                        Height="30"
+                        FontSize="18"
+                        HorizontalAlignment="Right"
+                        Margin="15"
+                        Background="AntiqueWhite">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius"
+                                    Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
         </StackPanel>
-            
-            
-        
+
+
+
 
 
 

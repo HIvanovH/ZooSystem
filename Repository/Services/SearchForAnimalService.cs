@@ -21,15 +21,15 @@ namespace Repository.Services
         {
             
         }
-        public List<Animal> SearchAnimal()
-        {
-            var db = new ZooDbContext();
-            return  db.Animal.ToList();
-        }
+        
         public List<Animal> SearchAnimal(Category SCategory)
         {
             var db = new ZooDbContext();
-            return db.Animal.Where(a=> (SCategory!=null)? a.Category.IdCat==SCategory.IdCat : true).ToList();
+            if(SCategory == null)
+            {
+                return db.Animal.ToList();
+            }
+            return db.Animal.Where(a=> a.Category.IdCat==SCategory.IdCat).ToList();
         }
 
     }

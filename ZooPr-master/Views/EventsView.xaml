@@ -10,30 +10,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox ItemsSource="{Binding EventTypes}"
-                  DisplayMemberPath="Type"
-                  SelectedItem="{Binding Path=SEventsType}"
-                  SelectedValuePath="Type"
-                  SelectedValue="{Binding Name, Mode=TwoWay}"
-                  FontSize="20"
-                  HorizontalAlignment="Left"
-                  Margin="200,0,0,0"
-                  Grid.Row="1"
-                  VerticalAlignment="Center"
-                  Width="150"
-                  Height="30" />
-        <Button Command="{Binding SearchEvents}"
-                Grid.Row="1"
-                Content="Търси"
-                Background="AntiqueWhite"
-                FontSize="18"
-                Width="150"
-                Height="30"
-                HorizontalAlignment="Left"
-                Margin="380,0,0,0" />
         <Border Grid.Row="0"
                 Margin="15,0,15,0"
                 CornerRadius="25"
@@ -54,72 +33,96 @@
                        Foreground="#FFFF8000"
                        Height="45" />
         </Border>
-        <DatePicker  SelectedDate="{Binding SDate}"
-                     HorizontalAlignment="Left"
-                     Margin="35,0,0,0"
-                     Grid.Row="1"
-                     VerticalAlignment="Center"
-                     Height="30"
-                     Width="150"
-                     FontSize="20" />
-        <GroupBox Header="Резултати"
-                  Grid.Row="2"
-                  Margin="15,0,0,0"
-                  HorizontalAlignment="Left"
-                  FontSize="18"
-                  VerticalAlignment="Center"
-                  Height="300"
-                  Width="500"
-                  FontWeight="Bold"
-                  Foreground="Black"
-                  Background="AntiqueWhite">
-            <ListView ItemsSource="{Binding Events}"
-                      SelectedValue="{Binding SEvent}"
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <ComboBox ItemsSource="{Binding EventTypes}"
+                      DisplayMemberPath="Type"
+                      SelectedItem="{Binding Path=SelectedEventsType}"
+                      SelectedValuePath="Type"
+                      SelectedValue="{Binding Name, Mode=TwoWay}"
                       FontSize="20"
-                      Margin="5"
+                      HorizontalAlignment="Left"
+                      Margin="15,5,5,5"
+                      Grid.Row="1"
+                      VerticalAlignment="Center"
+                      Width="150"
+                      Height="30" />
+            <DatePicker  SelectedDate="{Binding SelectedDate}"
+                         HorizontalAlignment="Left"
+                         Margin="5"
+                         Grid.Row="1"
+                         VerticalAlignment="Center"
+                         Height="30"
+                         Width="150"
+                         FontSize="20" />
+            <Button Command="{Binding SearchEvents}"
+                    Grid.Row="1"
+                    Content="Търси"
+                    Background="AntiqueWhite"
+                    FontSize="18"
+                    Width="150"
+                    Height="30"
+                    HorizontalAlignment="Left"
+                    Margin="5" />
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+            <GroupBox Header="Резултати"
+                      Grid.Row="2"
+                      Margin="15,0,0,0"
+                      HorizontalAlignment="Left"
+                      FontSize="18"
+                      VerticalAlignment="Center"
+                      Height="300"
+                      Width="600"
                       FontWeight="Bold"
+                      Foreground="Black"
+                      Background="AntiqueWhite">
+                <ListView ItemsSource="{Binding Events}"
+                          SelectedValue="{Binding SelectedEvent}"
+                          FontSize="20"
+                          Margin="5"
+                          FontWeight="Bold"
+                          Background="AntiqueWhite"
+                          Foreground="Black">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                            Header="Събитие"
+                                            Width="225" />
+                            <GridViewColumn DisplayMemberBinding="{Binding EventsType.Type}"
+                                            Header="Вид"
+                                            Width="150" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Date}"
+                                            Header="Дата"
+                                            Width="140" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </GroupBox>
+            <GroupBox Height="300"
+                      Width="300"
+                      Header="Описание"
+                      Grid.Row="2"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontSize="18"
+                      FontWeight="Bold"
+                      BorderBrush="Black"
                       Background="AntiqueWhite"
-                      Foreground="Black">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                        Header="Събитие"
-                                        Width="180" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Type}"
-                                        Header="Вид"
-                                        Width="145" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Date}"
-                                        Header="Дата"
-                                        Width="140" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </GroupBox>
-        <GroupBox Height="300"
-                  Width="300"
-                  Header="Описание"
-                  Grid.Row="2"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  FontSize="18"
-                  FontWeight="Bold"
-                  BorderBrush="Black"
-                  Background="AntiqueWhite"
-                  Margin="150,0,0,0">
+                      Margin="15,0,0,0">
 
-            <TextBlock Text="{Binding SEvent.Description}"
-                       FontSize="20"
-                       HorizontalAlignment="Stretch"
-                       Margin="5"
-                       TextWrapping="Wrap"
-                       VerticalAlignment="Stretch">
-                <TextBlock.Effect>
-                    <DropShadowEffect BlurRadius="50"
-                                      Color="White"
-                                      ShadowDepth="0" />
-                </TextBlock.Effect>
-            </TextBlock>
-        </GroupBox>
-
+                <TextBlock Text="{Binding SelectedEvent.Description}"
+                           FontSize="20"
+                           HorizontalAlignment="Stretch"
+                           Margin="5"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Stretch">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="50"
+                                          Color="White"
+                                          ShadowDepth="0" />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </GroupBox>
+        </StackPanel>
     </Grid>
 </UserControl>

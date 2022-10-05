@@ -21,6 +21,7 @@ namespace Zoo.Commands
         {
 
         }
+
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
@@ -32,7 +33,6 @@ namespace Zoo.Commands
 
             return _canExecute(parameter);
         }
-
         public void Execute(object parameter)
         {
             _execute(parameter);

@@ -1,14 +1,5 @@
-﻿using Syncfusion.Windows.Shared;
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Zoo.Commands;
-using Zoo.Models;
-using DelegateCommand = Zoo.Commands.DelegateCommand;
 
 namespace Zoo.View_Models
 {
@@ -17,17 +8,6 @@ namespace Zoo.View_Models
         private ViewModelBase _optionViewModel;
         private ICommand _openAnimalsCommand;
         private ICommand _openEventsCommand;
-        public ViewModelBase OptionViewModel
-        {
-            get
-            { return _optionViewModel; }
-            set
-            {
-                _optionViewModel = value;
-                OnPropertyChanged("OptionViewModel");
-            }
-        }
-
 
         public ICommand OpenAnimalsCommand
         {
@@ -55,9 +35,21 @@ namespace Zoo.View_Models
         {
             OptionViewModel = new EventsViewModel();
         }
+        public ViewModelBase OptionViewModel
+        {
+            get
+            { return _optionViewModel; }
+            set
+            {
+                _optionViewModel = value;
+                OnPropertyChanged("OptionViewModel");
+            }
+        }
         public MenuViewModel()
         {
+          
             OptionViewModel = new AnimalViewModel();
+            
         }
     }
 }

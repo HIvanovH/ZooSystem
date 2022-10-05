@@ -10,7 +10,7 @@ using Zoo.View_Models;
 namespace Zoo.Services
 {
     //public delegate void LoginWindowService();
-    internal class WindowService 
+    /*internal class WindowService 
     {
        
         public void ShowMenuWindow()
@@ -25,5 +25,5 @@ namespace Zoo.Services
             Application.Current.MainWindow.Close();
         }
         
-    }
+    }*/
 }

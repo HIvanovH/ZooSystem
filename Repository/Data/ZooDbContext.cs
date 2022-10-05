@@ -1,10 +1,5 @@
 ﻿using Repository.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Data
 {
@@ -20,7 +15,6 @@ namespace Repository.Data
         public DbSet<Event> Event { get; set; }
         public DbSet<EventsType> EventsType { get; set; }
         public DbSet<TicketsType> TicketsType { get; set; }
-
         public DbSet<UserOrdercs> UserOrdercs { get; set; }
     }
 }

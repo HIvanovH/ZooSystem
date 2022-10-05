@@ -34,9 +34,6 @@
                            FontFamily="Sitka Heading"
                            Foreground="#FFFF8000" />
             </Viewbox>
-
-
-
             <Grid Grid.Row="1"
                   Margin="15">
                 <Grid.ColumnDefinitions>
@@ -98,8 +95,6 @@
 
                     </WrapPanel>
                 </Border>
-
-
             </Grid>
             <Border x:Name="LoginBorder"
                     Height="220"
@@ -117,7 +112,6 @@
                                      Opacity="0.8"></SolidColorBrush>
                 </Border.Background>
                 <StackPanel Opacity="1">
-
                     <TextBlock TextWrapping="Wrap"
                                Text="Username"
                                TextAlignment="Left"
@@ -148,7 +142,6 @@
                             Margin="0,15,50,0"
                             Command="{Binding Command}"
                             CommandParameter="Menu"></Button>
-
                 </StackPanel>
             </Border>
         </Grid>

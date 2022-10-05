@@ -8,6 +8,7 @@ namespace Zoo.Models
 {
     public class Ticket
     {
+        public int IdType { get; set; }
         public string Type { get; set; }
         public double Price { get; set; }
         public int Number { get; set; }

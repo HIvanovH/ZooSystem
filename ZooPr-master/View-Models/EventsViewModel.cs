@@ -6,18 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-using Zoo.Models;
+using Repository.Models;
+using Repository.Services;
+
 
 namespace Zoo.View_Models
 {
     public class EventsViewModel : ViewModelBase
     {
         private List<EventsType> _eventTypes;
-        private EventsType _sEventsType;
-        private List<EventToDisplay> _events;
-        private DateTime? _sDate = null;
+        private EventsType _selectedEventType;
+        private List<Event> _events;
+        private DateTime? _selectedDate = null;
         private ICommand _searchEvents;
-        private EventToDisplay _sEvent;
+        private Event _selectedEvent;
 
         public ICommand SearchEvents
         {
@@ -29,59 +31,54 @@ namespace Zoo.View_Models
                 }));
             }
         }
-
-
         public void SearchAction()
         {
             //checks if date is null or not and checks if the type for event chosen by the user is null or not
             //then selects the events by the condition
-           
+            Events = SearchForEventsService.GetSearchForAnimalService().SearchForEvents(SelectedDate,SelectedEventsType);
         }
-
         public void DisplayEventType()
         {
             //Displays all types of events in a combobox
- 
+            EventTypes = SearchForEventTypes.GetSearchForEventTypes().GetEventTypes();
         }
-
-        public EventsType SEventsType
+        public EventsType SelectedEventsType
         {
-            get { return _sEventsType; }
+            get { return _selectedEventType; }
             set
             {
-                _sEventsType = value;
-                OnPropertyChanged("SEventsType");
-
+                _selectedEventType = value;
+                OnPropertyChanged(nameof(SelectedEventsType));
             }
         }
-        public DateTime? SDate
+        public DateTime? SelectedDate
         {
-            get { return _sDate; }
+            get { return _selectedDate; }
             set
             {
-                _sDate = value;
-                OnPropertyChanged("SDate");
+                _selectedDate = value;
+                OnPropertyChanged(nameof(SelectedDate));
             }
         }
-        public List<EventToDisplay> Events
+        public List<Event> Events
         {
             get { return _events; }
             set
             {
                 _events = value;
-                OnPropertyChanged("Events");
+                OnPropertyChanged(nameof(Events));
             }
         }
-        public EventToDisplay SEvent
+        public Event SelectedEvent
         {
             get
             {
-                return _sEvent;
+                return _selectedEvent;
             }
             set
             {
-                _sEvent = value;
-                OnPropertyChanged("SEvent");
+                _selectedEvent = value;
+                OnPropertyChanged(nameof(SelectedEvent));
             }
         }
         public List<EventsType> EventTypes
@@ -90,7 +87,7 @@ namespace Zoo.View_Models
             set
             {
                 _eventTypes = value;
-                OnPropertyChanged("EventTypes");
+                OnPropertyChanged(nameof(EventTypes));
             }
         }
         public EventsViewModel()

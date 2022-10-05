@@ -10,6 +10,12 @@ namespace Repository.Models
 {
     public class UserOrdercs
     {
+        public UserOrdercs(int idUser,int idTypeTicket)
+        {
+            this.IdUser = idUser;
+            this.IdTypeTicket = idTypeTicket;
+        }
+
         [Key]
         public int Id { get; set; }
         [ForeignKey(nameof(User))]

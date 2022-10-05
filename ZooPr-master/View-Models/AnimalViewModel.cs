@@ -9,17 +9,16 @@ using System.Windows.Input;
 using Zoo.Models;
 using Repository.Services;
 using Zoo.Services;
-
+using Repository.Models;
 
 namespace Zoo.View_Models
 {
     public class AnimalViewModel : ViewModelBase
     {
-        //private ZooDbContext zooDbContext = new ZooDbContext();
-        private List<AnimalToDisplay> _animals;
-        private List<SpeciesToDisplay> _categories;
-        private SpeciesToDisplay _sCategory;
-        private AnimalToDisplay _sAnimal;
+        private List<Animal> _animals;
+        private List<Category> _categories;
+        private Category _selectedCategory;
+        private Animal _selectedAnimal;
         private DelegateCommand command;
          
         public ICommand SearchAnimals
@@ -32,51 +31,49 @@ namespace Zoo.View_Models
                 }));
             }
         }
-
-
         public void SearchAnimalAction()
         {
-            Animals = WrapAnimalService.GetWrapAnimalService().WrapAnimalToDisplay();
+            Animals = SearchForAnimalService.GetSearchForAnimalService().SearchAnimal(SelectedCategory);
         }
         public void FillCombobox()
         {
-            Categories = WrapSpecies.GetWrapSpecies().WrapWrapSpecies();
+            Categories = SearchForAnimalCategory.GetSearchForSpecies().SearchSpecies();
         }
         
-        public AnimalToDisplay SAnimal
+        public Animal SelectedAnimal
         {
-            get { return _sAnimal; }
+            get { return _selectedAnimal; }
             set
             {
-                _sAnimal = value;
-                OnPropertyChanged("SAnimal");
+                _selectedAnimal = value;
+                OnPropertyChanged(nameof(SelectedAnimal));
             }
         }
-        public List<AnimalToDisplay> Animals
+        public List<Animal> Animals
         {
             get { return _animals; }
             set
             {
                 _animals = value;
-                OnPropertyChanged("Animals");
+                OnPropertyChanged(nameof(Animals));
             }
         }
-        public SpeciesToDisplay SCategory
+        public Category SelectedCategory
         {
-            get { return _sCategory; }
+            get { return _selectedCategory; }
             set
             {
-                _sCategory = value;
-                OnPropertyChanged("SCategory");
+                _selectedCategory = value;
+                OnPropertyChanged(nameof(SelectedCategory));
             }
         }
-        public List<SpeciesToDisplay> Categories
+        public List<Category> Categories
         {
             get { return _categories; }
             set
             {
                 _categories = value;
-                OnPropertyChanged("Category");
+                OnPropertyChanged(nameof(Categories));
             }
         }
         public AnimalViewModel()

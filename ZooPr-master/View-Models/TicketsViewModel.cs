@@ -1,87 +1,66 @@
-﻿using Syncfusion.Windows.Shared;
+﻿using Repository.Services;
+using Syncfusion.Windows.Shared;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-
+using Repository.Models;
 using Zoo.Models;
-
 namespace Zoo.View_Models
 {
     public class TicketsViewModel : ViewModelBase
     {
-       
+        #region Private Fields
         private List<TicketsType> _ticketsTypes;
-        private List<Ticket> _ticketsList;
-        private List<Ticket> _ticketsDisplay;
-        private TicketsType _sType;
-        private Ticket ticket;
-        private double _sValue;
+        private ObservableCollection<Ticket> _ticketsList;
+        private TicketsType? _selectetType;
+        private Ticket _ticket;
+        private double _selectedValue;
         private double _finalPrice;
-        private int currUserId;
-
         private ICommand _saveTicketsToDb;
         private ICommand _displayTicketsOnTable;
+        #endregion
+        public static int UserId { get; set; }
 
-        public double FinalPrice 
-        { 
-            get { return _finalPrice; } 
-            set { _finalPrice = value; 
-                OnPropertyChanged("FinalPrice"); } 
-        }
-        public TicketsViewModel()
-        {
-            DisplayTicketsType();
-
-            _ticketsList = new List<Ticket>();
-            FinalPrice = 0;
-        }
-
-        public void DisplayTicketsType()
-        {
-            //displays all types of tickets in a combobox
-           
-        }
-
-
-        /* public ICommand SaveTicketsToDb //TODO...
-         {
-             get
-             {
-                 return _saveTicketsToDb ?? (_saveTicketsToDb = new DelegateCommand(context => SaveAction()));
-             }
-         }*/
-        public void SaveAction()
-        {
-            //TODO...
-            /*if (TicketsList.Count != 0)
-            {
-                for(int i = 0; i < TicketsList.Count; i++)
-                {
-                    
-                }
-                
-            }*/
-        }
         public ICommand DisplayTicketsOnTable
         {
             get
             {
-                return _displayTicketsOnTable ?? (_displayTicketsOnTable = new DelegateCommand(context => MyAction()));
+                return _displayTicketsOnTable ?? (_displayTicketsOnTable = new DelegateCommand(context => CalculateDetailsForOrder()));
             }
         }
-        public void MyAction()
+        public ICommand SaveTicketsToDb
         {
-            if (SType != null)
+            get
             {
-                if ((int)SValue != 0)
+                return _saveTicketsToDb ?? (_saveTicketsToDb = new DelegateCommand(context => SaveAction()));
+            }
+        }
+        public void SaveAction()
+        {
+            //TODO...
+            List<Ticket> ticketsToSave = new List<Ticket>();
+            ticketsToSave.AddRange(TicketsList);
+            SaveOrders.GetSaveOrders().SaveChanges(ticketsToSave);
+            TicketsList.Clear();
+            FinalPrice = 0;
+            SelectedValue = 0;
+            SelectedType = null;
+
+        }
+        public void CalculateDetailsForOrder()
+        {
+            if (SelectedType != null)
+            {
+                if ((int)SelectedValue != 0)
                 {
                     Ticket = new Ticket();
-                    Ticket.Type = SType.Type;
-                    Ticket.Price = SType.price;
-                    Ticket.Number = (int)SValue;
+                    Ticket.Type = SelectedType.Type;
+                    Ticket.IdType = SelectedType.IdTypeTicket;
+                    Ticket.Price = SelectedType.price;
+                    Ticket.Number = (int)SelectedValue;
                     TicketsList.Add(Ticket);
-                    TicketsDisplay = new List<Ticket>(TicketsList);
-                    FinalPrice += SType.price * SValue;
+                    FinalPrice += SelectedType.price * SelectedValue;
                 }
                 else { MessageBox.Show("Броят на билетите не може да бъде по-малък от 1"); }
 
@@ -93,7 +72,11 @@ namespace Zoo.View_Models
 
 
         }
-
+        public void DisplayTicketsType()
+        {
+            //displays all types of tickets in a combobox
+            TicketsTypes = SearchForTicketsType.GetSearchForTicketsType().GetTicketsType();
+        }
 
         public List<TicketsType> TicketsTypes
         {
@@ -101,55 +84,61 @@ namespace Zoo.View_Models
             set
             {
                 _ticketsTypes = value;
-                OnPropertyChanged("TicketsTypes");
+                OnPropertyChanged(nameof(TicketsTypes));
             }
         }
-        public List<Ticket> TicketsList
+        public ObservableCollection<Ticket> TicketsList
         {
             get { return _ticketsList; }
             set
             {
                 _ticketsList = value;
-                OnPropertyChanged("TicketsList");
+                OnPropertyChanged(nameof(TicketsList));
             }
         }
-        public List<Ticket> TicketsDisplay
+        public double FinalPrice
         {
-            get { return _ticketsDisplay; }
+            get { return _finalPrice; }
             set
             {
-                _ticketsDisplay = value;
-                OnPropertyChanged("TicketsDisplay");
+                _finalPrice = value;
+                OnPropertyChanged(nameof(FinalPrice));
             }
         }
         public Ticket Ticket
         {
-            get { return ticket; }
+            get { return _ticket; }
             set
             {
-                ticket = value;
-                OnPropertyChanged("Ticket");
+                _ticket = value;
+                OnPropertyChanged(nameof(Ticket));
             }
         }
-        public TicketsType SType
+        public TicketsType? SelectedType
         {
-            get { return _sType; }
+            get { return _selectetType; }
             set
             {
-                _sType = value;
-                OnPropertyChanged("SType");
+                _selectetType = value;
+                OnPropertyChanged(nameof(SelectedType));
 
             }
         }
-        public double SValue
+        public double SelectedValue
         {
-            get { return _sValue; }
+            get { return _selectedValue; }
             set
             {
-                _sValue = value;
-                OnPropertyChanged("SValue");
+                _selectedValue = value;
+                OnPropertyChanged(nameof(SelectedValue));
 
             }
+        }
+        public TicketsViewModel()
+        {
+            DisplayTicketsType();
+            _ticketsList = new ObservableCollection<Ticket>();
+            FinalPrice = 0;
         }
     }
 }

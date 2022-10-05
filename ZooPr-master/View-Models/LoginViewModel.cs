@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Repository.Models;
+using Repository.Services;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Windows;
 using System.Windows.Input;
 using Zoo.Commands;
@@ -10,16 +14,27 @@ namespace Zoo.View_Models
     {
         private string _username;
         private string _password;
-        private readonly MainViewModel _mainViewModel;
-        private List<User> _users;
-        public User currentUser;
-        public List<User> Users { get; set; }
-
-
         private ICommand _command;
+
         public ICommand Command
         {
-            get { return _command ?? (_command = new DelegateCommand(p => LoginSuccessfully())); }
+            get { return _command ?? (_command = new DelegateCommand(p => CheckLogin())); }
+        }
+        private void CheckLogin()
+        {
+            TicketsViewModel.UserId = CheckUserLogin.GetCheckUserLogin().ReturnUserId(Username,_password);
+            if(TicketsViewModel.UserId != 0) {
+                LoginSuccessfully();
+            }
+            else
+            {
+                ShowErrorLoginMessage();
+            }
+            
+        }
+        public void ShowErrorLoginMessage()
+        {
+            MessageBox.Show("Грешно потребителско име или парола!");
         }
         public void LoginSuccessfully()
         {
@@ -28,8 +43,20 @@ namespace Zoo.View_Models
             win.Show();
             Application.Current.MainWindow.Close();
         }
-        public string Username { get { return _username; } set { _username = value; OnPropertyChanged("Username"); } }
-
-
+        
+        public string Username { 
+            get { return _username; } 
+            set { 
+                _username = value;
+                OnPropertyChanged(nameof(Username)); 
+            } 
+        }
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value;
+            OnPropertyChanged(nameof(Password));}
+        }
+       
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\Projects\Zoo\ZooSystem\ZooPr-master\App.xaml
-7700030934
+6-1049353496
 
-30-157440777
+211461497386
 2041531324950
-Styles\Dictionary1.xaml;Views\AnimalsView.xaml;Views\EventsView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\Menu.xaml;Views\TicketsView.xaml;
+Views\AnimalsView.xaml;Views\EventsView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\Menu.xaml;Views\TicketsView.xaml;
 
-False
+True
 

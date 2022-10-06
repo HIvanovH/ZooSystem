@@ -18,6 +18,12 @@ namespace Repository.Models
         [ForeignKey(nameof(EventsType))]
         public int TypeId { get; set; }
         public virtual EventsType EventsType { get; set; }
-        
+        public bool IsDeleted { get; set; }
+
+       /* public override string ToString()
+        {
+            return 
+        }*/
+
     }
 }

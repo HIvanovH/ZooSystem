@@ -81,7 +81,7 @@ namespace Zoo.View_Models
         {
             Categories = new List<Category>();
             FillCombobox();
-           
+            SelectedCategory = Categories.FirstOrDefault();
         }
     }
 }

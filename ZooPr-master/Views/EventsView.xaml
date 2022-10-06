@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="420"
              d:DesignWidth="860">
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -38,7 +38,7 @@
                       DisplayMemberPath="Type"
                       SelectedItem="{Binding Path=SelectedEventsType}"
                       SelectedValuePath="Type"
-                      SelectedValue="{Binding Name, Mode=TwoWay}"
+                      SelectedValue="{Binding SelectedEventsType.Type, Mode=TwoWay}"
                       FontSize="20"
                       HorizontalAlignment="Left"
                       Margin="15,5,5,5"
@@ -46,14 +46,18 @@
                       VerticalAlignment="Center"
                       Width="150"
                       Height="30" />
-            <DatePicker  SelectedDate="{Binding SelectedDate}"
-                         HorizontalAlignment="Left"
-                         Margin="5"
-                         Grid.Row="1"
-                         VerticalAlignment="Center"
-                         Height="30"
-                         Width="150"
-                         FontSize="20" />
+            
+            <DatePicker SelectedDate="{Binding SelectedDate}"
+                        Margin="5"
+                        FontSize="20">
+                
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="Text"
+                                Value="Изберете дата" />
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
             <Button Command="{Binding SearchEvents}"
                     Grid.Row="1"
                     Content="Търси"
@@ -91,12 +95,70 @@
                             <GridViewColumn DisplayMemberBinding="{Binding EventsType.Type}"
                                             Header="Вид"
                                             Width="150" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Date}"
+                            <GridViewColumn DisplayMemberBinding="{Binding Date,StringFormat='{}{0:dd/MM/yyyy}'}"
                                             Header="Дата"
-                                            Width="140" />
+                                            Width="140" 
+                                            />
+                            <GridViewColumn  x:Name="gridClm_SelectRow"
+                                             Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                
+                                        <Button x:Name="btnDelete"
+                                                Tag="{Binding Index}"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                Height="25"
+                                                Width="25"
+                                                >
+                                            <Image Source="/Pictures/DeleteBtnPicture.png" />
+                                        </Button>
+
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <!--<Style>
+                                <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsAvailable}"
+                                                     Value="True">
+                                            <Setter Property="Visibility"
+                                                    Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>-->
+                            </GridViewColumn>
+
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <!--<ListView Name="lv"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="2"
+                          ItemsSource="{Binding AssignedSubjects}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="140"
+                                            Header="Subjects"
+                                            DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="X"
+                                                Command="{Binding ElementName=lv,Path=DataContext.RemoveSubjectCommand}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>-->
             </GroupBox>
             <GroupBox Height="300"
                       Width="300"

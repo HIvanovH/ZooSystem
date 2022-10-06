@@ -20,42 +20,40 @@ namespace Repository.Services
         {
             zooDbContext = new ZooDbContext();
         }
-        public List<Event> SearchForEvents(DateTime? date, EventsType? eventsType)
+        public List<Event> SearchForEvents(DateTime? date, EventsType eventsType)
         {
             //checks if date is null or not and checks if the type for event chosen by the user is null or not
             //then selects the events by the condition
-            if (date != null && eventsType == null)
+
+           
+            if (eventsType.TypeId == 1)
             {
-                return zooDbContext
+                if (date != null)
+                { 
+                    return zooDbContext
                     .Event
                     .Where(e => e.Date == date)
-                    .Select(e => e)
                     .ToList();
-
-            }
-            else if (date == null && eventsType != null)
-            {
+                }
                 return zooDbContext
                     .Event
-                    .Where(e => e.TypeId == eventsType.TypeId)
                     .ToList();
-
-            }
-            else if (date != null && eventsType != null)
-            {
-                return zooDbContext
-                    .Event
-                    .Where(e => e.TypeId == eventsType.TypeId && e.Date == date)
-                    .ToList();
-
             }
             else
             {
-                return zooDbContext
+                if (date != null)
+                {
+                    return zooDbContext
                     .Event
+                    .Where(e => e.Date == date && e.TypeId==eventsType.TypeId)
                     .ToList();
-
+                }
+                return zooDbContext
+                   .Event
+                   .Where(e => e.TypeId == eventsType.TypeId)
+                   .ToList();
             }
+            
         }
 
         public List<EventsType> DisplayEventType()

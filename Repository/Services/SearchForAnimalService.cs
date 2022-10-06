@@ -25,10 +25,11 @@ namespace Repository.Services
         public List<Animal> SearchAnimal(Category SCategory)
         {
             var db = new ZooDbContext();
-            if(SCategory == null)
+            if(SCategory == null || SCategory.CategoryId == 1)
             {
                 return db.Animal.ToList();
             }
+            
             return db.Animal.Where(a=> a.Category.CategoryId==SCategory.CategoryId).ToList();
         }
 

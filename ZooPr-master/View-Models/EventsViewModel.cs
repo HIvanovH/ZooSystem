@@ -93,6 +93,7 @@ namespace Zoo.View_Models
         public EventsViewModel()
         {
             DisplayEventType();
+            SelectedEventsType = EventTypes[0];
         }
     }
 }

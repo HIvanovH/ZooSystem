@@ -1,8 +1,4 @@
-﻿using Repository.Models;
-using Repository.Services;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration.Configuration;
+﻿using Repository.Services;
 using System.Windows;
 using System.Windows.Input;
 using Zoo.Commands;

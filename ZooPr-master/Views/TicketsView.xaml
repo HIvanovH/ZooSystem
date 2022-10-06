@@ -6,18 +6,15 @@
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              x:Class="Zoo.Views.TicketsView"
              mc:Ignorable="d"
-             d:DesignHeight="430"
+             d:DesignHeight="420"
              d:DesignWidth="860">
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             
             <RowDefinition Height="5*" />
             
         </Grid.RowDefinitions>
-
-
-
 
         <Border Grid.Row="0"
                 Margin="15,0,15,0"

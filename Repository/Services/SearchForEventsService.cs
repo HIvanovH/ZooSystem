@@ -24,7 +24,7 @@ namespace Repository.Services
         {
             //checks if date is null or not and checks if the type for event chosen by the user is null or not
             //then selects the events by the condition
-
+           // return zooDbContext.Event.Where(e => date != null ? e.Date == date && e.TypeId == eventsType.TypeId : e.TypeId == eventsType.TypeId).FirstOrDefault();
            
             if (eventsType.TypeId == 1)
             {
@@ -32,11 +32,11 @@ namespace Repository.Services
                 { 
                     return zooDbContext
                     .Event
-                    .Where(e => e.Date == date)
+                    .Where(e => e.Date == date &&  e.IsDeleted == false)
                     .ToList();
                 }
                 return zooDbContext
-                    .Event
+                    .Event.Where(e=>e.IsDeleted == false)
                     .ToList();
             }
             else
@@ -45,22 +45,22 @@ namespace Repository.Services
                 {
                     return zooDbContext
                     .Event
-                    .Where(e => e.Date == date && e.TypeId==eventsType.TypeId)
+                    .Where(e => e.Date == date && e.TypeId==eventsType.TypeId && e.IsDeleted == false)
                     .ToList();
                 }
                 return zooDbContext
                    .Event
-                   .Where(e => e.TypeId == eventsType.TypeId)
+                   .Where(e => e.TypeId == eventsType.TypeId && e.IsDeleted == false)
                    .ToList();
             }
             
         }
-
-        public List<EventsType> DisplayEventType()
+       
+       /* public List<EventsType> DisplayEventType()
         {
             //rerutns all event types
             var db = new ZooDbContext();
             return db.EventsType.ToList();
-        }
+        }*/
     }
 }

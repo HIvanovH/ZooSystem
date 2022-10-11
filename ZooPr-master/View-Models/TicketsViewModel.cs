@@ -19,8 +19,13 @@ namespace Zoo.View_Models
         private double _finalPrice;
         private ICommand _saveTicketsToDb;
         private ICommand _displayTicketsOnTable;
+        private int _sValue;
+        public int SValue { get { return _sValue; }
+            set { _sValue = value;
+                OnPropertyChanged(nameof(SValue));
+            } }
         #endregion
-        public static int UserId { get; set; }
+        public static User User { get; set; }
 
         public ICommand DisplayTicketsOnTable
         {
@@ -38,7 +43,7 @@ namespace Zoo.View_Models
         }
         public void SaveAction()
         {
-            //TODO...
+           
             List<Ticket> ticketsToSave = new List<Ticket>();
             ticketsToSave.AddRange(TicketsList);
             WrapOrders.GetSaveOrders().SaveChanges(ticketsToSave);

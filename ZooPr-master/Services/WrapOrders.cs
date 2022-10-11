@@ -32,12 +32,12 @@ namespace Repository.Services
                 {
                     for (int i = 0; i < ticket.Number; i++)
                     {
-                        UserOrders userOrders = new UserOrders(TicketsViewModel.UserId, ticket.IdType);
+                        UserOrders userOrders = new UserOrders(TicketsViewModel.User.UserId, ticket.IdType);
                         ordersToSave.Add(userOrders);
-                        SaveOrders.GetSaveOrders().SaveChanges(ordersToSave);
+                        
                     }
                 }
-  
+                SaveOrders.GetSaveOrders().SaveChanges(ordersToSave);
 
             }
         }

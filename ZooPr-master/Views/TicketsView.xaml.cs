@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zoo.View_Models;
 
 namespace Zoo.Views
 {
@@ -21,6 +22,7 @@ namespace Zoo.Views
     {
         public TicketsView()
         {
+           
             InitializeComponent();
         }
 

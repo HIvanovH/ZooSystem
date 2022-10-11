@@ -22,7 +22,7 @@ namespace Repository.Services
         {
 
         }
-        public int ReturnUserId(string username,string password)
+        public User ReturnUserId(string username,string password)
         {
             var db = new ZooDbContext();
             if(username != null && password != null)
@@ -34,7 +34,7 @@ namespace Repository.Services
                     User user = db.User.Where(u => u.Name == username && u.Password == password).FirstOrDefault();
                     if(user != null)
                     {
-                        return user.UserId;
+                        return user;
                     }
                 }catch(Exception ex)
                 {
@@ -44,7 +44,7 @@ namespace Repository.Services
 
 
             }
-            return 0;
+            return null;
         }
        
     }

@@ -19,8 +19,8 @@ namespace Zoo.View_Models
         }
         private void CheckLogin()
         {
-            TicketsViewModel.UserId = CheckUserLogin.GetCheckUserLogin().ReturnUserId(Username,_password);
-            if(TicketsViewModel.UserId != 0) {
+            TicketsViewModel.User = CheckUserLogin.GetCheckUserLogin().ReturnUserId(Username,_password);
+            if(TicketsViewModel.User != null) {
                 LoginSuccessfully();
             }
             else

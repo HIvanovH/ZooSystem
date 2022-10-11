@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\Projects\Zoo\ZooSystem\ZooPr-master\App.xaml
-6-1049353496
+9-1895897400
 
-191944209811
+21-1706606946
 2041531324950
-Views\AnimalsView.xaml;Views\EventsView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\Menu.xaml;Views\TicketsView.xaml;
+CustomControls\NumericUpDown.xaml;Styles\UpDownBoxStyle.xaml;Themes\Generic.xaml;Views\AnimalsView.xaml;Views\EventsView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\Menu.xaml;Views\TicketsView.xaml;
 
 False
 

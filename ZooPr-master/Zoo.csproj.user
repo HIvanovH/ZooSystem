@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CustomControls\NumericUpDown.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AnimalsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +30,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CustomControls\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\UpDownBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AnimalsView.xaml">
       <SubType>Designer</SubType>
     </Page>

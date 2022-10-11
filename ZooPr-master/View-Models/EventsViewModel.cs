@@ -8,7 +8,8 @@ using System.Windows.Input;
 
 using Repository.Models;
 using Repository.Services;
-
+using System.Windows.Controls;
+using System.Windows;
 
 namespace Zoo.View_Models
 {
@@ -20,7 +21,35 @@ namespace Zoo.View_Models
         private DateTime? _selectedDate = null;
         private ICommand _searchEvents;
         private Event _selectedEvent;
+        private ICommand _deleteEvent;
+        public ICommand DeleteEvent
+        {
+            get
+            {
+                return _deleteEvent ?? (_deleteEvent = new DelegateCommand(context =>
+                {
+                    DeleteEventAction();
+                },p=>CanExecute()));
+            }
 
+        }
+        public void DeleteEventAction()
+        {
+            if (SelectedEvent != null)
+            {
+                DeleteEventService.GetDeleteEventService().DeleteEvent(SelectedEvent);
+                SearchAction();
+            }
+            else
+            {
+                MessageBox.Show("Не сте избрали събитие!");
+            }
+            
+        }
+        public bool CanExecute()
+        {
+            return TicketsViewModel.User.Role == Roles.Admin;
+        }
         public ICommand SearchEvents
         {
             get

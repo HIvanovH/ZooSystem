@@ -1,6 +1,9 @@
 ﻿using Repository.Services;
+using System.CodeDom;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Zoo.Commands;
 using Zoo.Models;
 using Zoo.Views;
@@ -12,6 +15,12 @@ namespace Zoo.View_Models
         private string _username;
         private string _password;
         private ICommand _command;
+        private MainWindow win;
+
+        public LoginViewModel()
+        {
+            LoadMenuInBackround();
+        }
 
         public ICommand Command
         {
@@ -29,18 +38,28 @@ namespace Zoo.View_Models
             }
             
         }
+        public void LoadMenuInBackround()
+        {
+            /*Task.Factory.StartNew(() =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {*/
+                    win = new MainWindow();
+                    win.Content = new MenuViewModel();
+  /*      });
+               });*/
+            
+        }
         public void ShowErrorLoginMessage()
         {
             MessageBox.Show("Грешно потребителско име или парола!");
         }
         public void LoginSuccessfully()
         {
-            var win = new MainWindow();
-            win.Content = new MenuViewModel();
+
             win.Show();
-            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow.Hide();
         }
-        
         public string Username { 
             get { return _username; } 
             set { 

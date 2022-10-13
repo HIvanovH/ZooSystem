@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:Zoo"
              xmlns:views="clr-namespace:Zoo.Views"
              xmlns:viewmodels="clr-namespace:Zoo.View_Models"
-             StartupUri="Views/LoginView.xaml">
+             xmlns:customcontrol="clr-namespace:Zoo.CustomControls">
+
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView/>
@@ -20,6 +21,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:TicketsViewModel}">
             <views:TicketsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:UpDownBoxViewModel}">
+            <customcontrol:NumericUpDown/>
         </DataTemplate>
     </Application.Resources>
 </Application>

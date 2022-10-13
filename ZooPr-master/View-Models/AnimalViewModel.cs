@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Zoo.Models;
 using Repository.Services;
-using Zoo.Services;
 using Repository.Models;
 
 namespace Zoo.View_Models

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Zoo.Views"
         xmlns:viewModels="clr-namespace:Zoo.View_Models"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Height="680"
         Width="900"
         Icon="/Pictures/logo.png"

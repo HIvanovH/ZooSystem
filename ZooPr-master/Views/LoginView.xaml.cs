@@ -31,5 +31,12 @@ namespace Zoo.Views
                 ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; 
             } 
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
     }
 }

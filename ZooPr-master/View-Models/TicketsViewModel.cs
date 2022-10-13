@@ -25,6 +25,7 @@ namespace Zoo.View_Models
                 OnPropertyChanged(nameof(SValue));
             } }
         #endregion
+        private UpDownBoxViewModel upDownBoxViewModel;
         public static User User { get; set; }
 
         public ICommand DisplayTicketsOnTable
@@ -144,6 +145,7 @@ namespace Zoo.View_Models
             DisplayTicketsType();
             _ticketsList = new ObservableCollection<Ticket>();
             FinalPrice = 0;
+            upDownBoxViewModel = new UpDownBoxViewModel();
         }
     }
 }

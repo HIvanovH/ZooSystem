@@ -101,6 +101,7 @@ E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Zoo.csproj.Assem
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\CustomControls\NumericUpDown.g.cs
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\AnimalsView.g.cs
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\EventsView.g.cs
+E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\Loading Screen\LoadingWindow.g.cs
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\LoginView.g.cs
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\Menu.g.cs
@@ -134,10 +135,9 @@ E:\Projects\Zoo\ZooSystem\ZooPr-master\bin\Debug\net6.0-windows\Repository.pdb
 E:\Projects\Zoo\ZooSystem\ZooPr-master\bin\Debug\net6.0-windows\Repository.dll.config
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\App.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\CustomControls\NumericUpDown.baml
-E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Styles\UpDownBoxStyle.baml
-E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Themes\Generic.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\AnimalsView.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\EventsView.baml
+E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\Loading Screen\LoadingWindow.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\LoginView.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\MainWindow.baml
 E:\Projects\Zoo\ZooSystem\ZooPr-master\obj\Debug\net6.0-windows\Views\Menu.baml

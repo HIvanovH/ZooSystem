@@ -91,12 +91,10 @@
                     
 
                 </GroupBox>
-                <!--<usercontrol:NumericUpDown Value="{Binding SValue,ElementName=Tickets,Mode=TwoWay}" />-->
-                <usercontrol:UpDownBox Height="30">
+                <usercontrol:NumericUpDown>
                     
-                </usercontrol:UpDownBox>
-                    
-                
+                </usercontrol:NumericUpDown>
+
                 <Button Content="Добави"
                         Width="120"
                         Height="30"

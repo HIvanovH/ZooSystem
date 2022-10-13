@@ -16,6 +16,9 @@
     <Compile Update="Views\EventsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Loading Screen\LoadingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -33,16 +36,13 @@
     <Page Update="CustomControls\NumericUpDown.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\UpDownBoxStyle.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Generic.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\AnimalsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\EventsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Loading Screen\LoadingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">
